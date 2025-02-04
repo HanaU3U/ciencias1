@@ -1,7 +1,10 @@
 #include <iostream>
+#include <string>
 
 #ifndef LINK_H
 #define LINK_H
+
+using namespace std;
 
 
 struct Link {

@@ -1,5 +1,6 @@
 #include <iostream>
-#include <vector>
+#include "Vectorh.h"
+#include <string>
 #include "Link.h"
 #include "Cancion.h"
 
@@ -16,8 +17,8 @@ struct Album {
     string fotografia;
     string editora;
     string estudioGrabacion;
-    vector<string> listadoLinks;
-    vector<Cancion> listadoCanciones;
+    Vectorh<string> listadoLinks;
+    Vectorh<Cancion> listadoCanciones;
 };
 
 #endif

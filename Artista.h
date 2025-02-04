@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #ifndef ARTISTA_H
 #define ARTISTA_H

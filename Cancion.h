@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Artista.h"
 #include "Link.h"
-#include "Version.h"
+#include "Vectorh.h"
 
 #ifndef CANCION_H
 #define CANCION_H
@@ -12,7 +12,7 @@ struct Cancion {
     string nombreArtistico;
     string nombreCancion;
     string duracion;
-    vector<Artista> listadoArtistas;
+    Vectorh<Artista> listadoArtistas;
     int numArtistasPrincipales;
     string compositorLetra;
     string compositorMusica;
@@ -21,8 +21,7 @@ struct Cancion {
     string paisGrabacion;
     int anioPrimeraPublicacion;
     string genero;
-    vector<Link> listadoLinks;
-    vector<Version> listadoVersiones;
+    Vectorh<Link> listadoLinks;
 };
 
 #endif

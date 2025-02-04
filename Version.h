@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include "Vectorh.h"
 #include "Link.h"
 #include "Artista.h"
 
@@ -10,12 +12,12 @@ struct Version {
     string tituloVersion;
     string tipoVersion;
     string artistaPrincipal;
-    vector<Artista> listadoArtistasPrincipales;
+    Vectorh<Artista> listadoArtistasPrincipales;
     string ciudadGrabacion;
     string paisGrabacion;
     string genero;
     int anioPublicacion;
-    vector<string> listadoLinks;
+    Vectorh<string> listadoLinks;
 };
 
 #endif
