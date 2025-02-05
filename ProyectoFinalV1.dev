@@ -110,8 +110,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit7]
-FileName=Vectorh.h
+[Unit8]
+FileName=Lista.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -120,7 +120,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit8]
+[Unit7]
 FileName=FormatearCSV.h
 CompileCpp=1
 Folder=

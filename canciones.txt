@@ -4,3 +4,6 @@ Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
 Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
 Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
 Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
+Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
+Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
+Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
