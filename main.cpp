@@ -107,7 +107,8 @@ int main() {
     album.listadoCanciones.push_back(cancion3);
     album.listadoLinks.push_back("https://spotify.com/album123");
     
-    datosAlbumes.push_back(album);
+    datosAlbumes.push_back(album.toCSV());
+    
 
     // Guardar datos en archivos al finalizar
     // (Aquí deberías convertir las estructuras de nuevo a texto)

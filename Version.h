@@ -3,9 +3,11 @@
 #include "Vectorh.h"
 #include "Link.h"
 #include "Artista.h"
+#include "FormatearCSV.h"
 
 #ifndef VERSION_H
 #define VERSION_H
+
 
 
 struct Version {
@@ -19,5 +21,7 @@ struct Version {
     int anioPublicacion;
     Vectorh<string> listadoLinks;
 };
+
+
 
 #endif
