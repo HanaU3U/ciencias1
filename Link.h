@@ -13,7 +13,7 @@ struct Link {
     string linkAlbum;
     string linkCancion;
     
-    string toCSV() const {
+    string toCSV()  {
         return formatearCSV(nombrePlataforma) + ";" + formatearCSV(linkCancion);
     }
 };

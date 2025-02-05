@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Vectorh.h"
+#include "Lista.h"
 #include <string>
 #include "Link.h"
 #include "FormatearCSV.h"
@@ -18,22 +18,22 @@ struct Album {
     string fotografia;
     string editora;
     string estudioGrabacion;
-    Vectorh<string> listadoLinks;
-    Vectorh<Cancion> listadoCanciones;
+    Lista<string> listadoLinks;
+    Lista<Cancion> listadoCanciones;
     
-    string toCSV() const {
+    string toCSV(){
         string result = formatearCSV(titulo) + ";" + formatearCSV(nombreArtistico) + ";" + 
                         formatearCSV(to_string(anioPublicacion)) + ";" + formatearCSV(paisGrabacion) + ";" + 
                         formatearCSV(editora) + ";" + formatearCSV(estudioGrabacion) + "\n";
 
         result += "Nombre Canción;Duración;Género;Artistas;Links\n";
-        for (size_t i = 0; i < listadoCanciones.get_size(); ++i) {
-            result += listadoCanciones[i].toCSV() + "\n";
+        for (int i = 0; i < listadoCanciones.get_size(); ++i) {
+            result += listadoCanciones.get(i).toCSV() + "\n";
         }
 
         result += "Links del álbum;\n";
-        for (size_t i = 0; i < listadoLinks.get_size(); ++i) {
-            result += listadoLinks[i] + "\n";
+        for (int i = 0; i < listadoLinks.get_size(); ++i) {
+            result += listadoLinks.get(i) + "\n";
         }
 
         return result;

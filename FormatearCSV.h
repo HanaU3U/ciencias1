@@ -4,6 +4,8 @@
 #ifndef FORMATEARCSV_H
 #define FORMATEARCSV_H
 
+using namespace std;
+
 
 string formatearCSV(const string& valor) {
     if (valor.find(',') != string::npos || valor.find(';') != string::npos) {

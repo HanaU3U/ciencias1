@@ -12,7 +12,7 @@ struct Artista {
     string paisOrigen;
     string instrumento;
     
-    string toCSV() const {
+    string toCSV() {
         return formatearCSV(nombreArtistico) + " (" + formatearCSV(instrumento) + ")";
     }
 };

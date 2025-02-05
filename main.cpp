@@ -6,15 +6,15 @@
 #include "Album.h"
 #include "Artista.h"
 #include "Version.h"
-#include "Vectorh.h"
+#include "Lista.h"
 
 using namespace std;
 
 
 
 // Función para cargar datos desde un archivo
-Vectorh<string> cargarDatos(const string& nombreArchivo) {
-    Vectorh<string> datos;
+Lista<string> cargarDatos(const string& nombreArchivo) {
+    Lista<string> datos;
     ifstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
@@ -23,14 +23,14 @@ Vectorh<string> cargarDatos(const string& nombreArchivo) {
 
     string linea;
     while (getline(archivo, linea)) {
-        datos.push_back(linea);
+        datos.insert(linea);
     }
     archivo.close();
     return datos;
 }
 
 // Función para guardar datos en un archivo
-void guardarDatos(const string& nombreArchivo, const Vectorh<string>& datos) {
+void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     ofstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
@@ -44,18 +44,18 @@ void guardarDatos(const string& nombreArchivo, const Vectorh<string>& datos) {
 }
 
 int main() {
-    Vectorh<Album> albumes;
-    Vectorh<Cancion> canciones;
-    Vectorh<Artista> artistas;
-    Vectorh<Version> versiones;
-    Vectorh<Link> links;
+    Lista<Album> albumes;
+    Lista<Cancion> canciones;
+    Lista<Artista> artistas;
+    Lista<Version> versiones;
+    Lista<Link> links;
 
     // Cargar datos desde archivos
-    Vectorh<string> datosAlbumes = cargarDatos("albumes.txt");
-    Vectorh<string> datosCanciones = cargarDatos("canciones.txt");
-    Vectorh<string> datosArtistas = cargarDatos("artistas.txt");
-    Vectorh<string> datosVersiones = cargarDatos("versiones.txt");
-    Vectorh<string> datosLinks = cargarDatos("links.txt");
+    Lista<string> datosAlbumes = cargarDatos("albumes.txt");
+    Lista<string> datosCanciones = cargarDatos("canciones.txt");
+    Lista<string> datosArtistas = cargarDatos("artistas.txt");
+    Lista<string> datosVersiones = cargarDatos("versiones.txt");
+    Lista<string> datosLinks = cargarDatos("links.txt");
 
     // Aquí puedes procesar los datos cargados y convertirlos en estructuras
 
@@ -63,51 +63,59 @@ int main() {
     Artista artista1 = {"Juan Pérez", "JP", "México", "Guitarra"};
     Artista artista2 = {"Ana López", "Anita", "España", "Voz"};
     Artista artista3 = {"Carlos Gómez", "Charlie", "Argentina", "Batería"};
+    
+    datosArtistas.insert(artista1.toCSV());
+    datosArtistas.insert(artista2.toCSV());
+    datosArtistas.insert(artista3.toCSV());
 
     // Creación de canciones
     Cancion cancion1 = {
         "JP", "Caminos del Alma", "3:45", 
-        Vectorh<Artista>(), 1, 
+        Lista<Artista>(), 1, 
         "Juan Pérez", "Juan Pérez", "JP & Band", 
         "Ciudad de México", "México", 2023, "Rock", 
-        Vectorh<Link>()
+        Lista<Link>()
     };
-    cancion1.listadoArtistas.push_back(artista1);
-    cancion1.listadoLinks.push_back({"Spotify", "https://spotify.com/album123", "https://spotify.com/track1"});
+    cancion1.listadoArtistas.insert(artista1);
+    cancion1.listadoLinks.insert({"Spotify", "https://spotify.com/album123", "https://spotify.com/track1"});
 
     Cancion cancion2 = {
         "Anita", "Vuela Alto", "4:10", 
-        Vectorh<Artista>(), 1, 
+        Lista<Artista>(), 1, 
         "Ana López", "Ana López", "Anita & Co.", 
         "Madrid", "España", 2023, "Pop", 
-        Vectorh<Link>()
+        Lista<Link>()
     };
-    cancion2.listadoArtistas.push_back(artista2);
-    cancion2.listadoLinks.push_back({"YouTube", "https://youtube.com/album123", "https://youtube.com/track2"});
+    cancion2.listadoArtistas.insert(artista2);
+    cancion2.listadoLinks.insert({"YouTube", "https://youtube.com/album123", "https://youtube.com/track2"});
 
     Cancion cancion3 = {
         "Charlie", "Ritmo Salvaje", "5:02", 
-        Vectorh<Artista>(), 1, 
+        Lista<Artista>(), 1, 
         "Carlos Gómez", "Carlos Gómez", "Charlie & The Beats", 
         "Buenos Aires", "Argentina", 2023, "Jazz", 
-        Vectorh<Link>()
+        Lista<Link>()
     };
-    cancion3.listadoArtistas.push_back(artista3);
-    cancion3.listadoLinks.push_back({"Apple Music", "https://apple.com/album123", "https://apple.com/track3"});
+    cancion3.listadoArtistas.insert(artista3);
+    cancion3.listadoLinks.insert({"Apple Music", "https://apple.com/album123", "https://apple.com/track3"});
+    
+    datosCanciones.insert(cancion1.toCSV());
+    datosCanciones.insert(cancion2.toCSV());
+    datosCanciones.insert(cancion3.toCSV());
 
     // Creación del álbum
     Album album = {
         "Colores del Mundo", "Varios Artistas", "Latinoamérica", 2023,
         "cover.jpg", "fotografia.jpg", "Universal Music", "Estudios Latam",
-        Vectorh<string>(), Vectorh<Cancion>()
+        Lista<string>(), Lista<Cancion>()
     };
 
-    album.listadoCanciones.push_back(cancion1);
-    album.listadoCanciones.push_back(cancion2);
-    album.listadoCanciones.push_back(cancion3);
-    album.listadoLinks.push_back("https://spotify.com/album123");
+    album.listadoCanciones.insert(cancion1);
+    album.listadoCanciones.insert(cancion2);
+    album.listadoCanciones.insert(cancion3);
+    album.listadoLinks.insert("https://spotify.com/album123");
     
-    datosAlbumes.push_back(album.toCSV());
+    datosAlbumes.insert(album.toCSV());
     
 
     // Guardar datos en archivos al finalizar
