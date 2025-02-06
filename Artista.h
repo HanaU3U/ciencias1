@@ -18,10 +18,7 @@ struct Artista {
     
     // Sobrecarga del operador <<
     friend ostream& operator<<(ostream& os, const Artista& artista) {
-        os << "Nombre: " << artista.nombreReal 
-           << ", Alias: " << artista.nombreArtistico 
-           << ", País: " << artista.paisOrigen 
-           << ", Instrumento: " << artista.instrumento;
+        os << "Nombre: " << artista.nombreReal <<endl;
         return os;
     }
 };

@@ -153,5 +153,34 @@ Nodo<T>* ArbolAVL<T>::eliminarNodo(Nodo<T>* nodo, int valor) {
     return nodo;
 }
 
+template <class T>
+void ArbolAVL<T>::inOrderIterativo(Cola<T>& cola) {
+    if (!raiz) return;
+    Pila<Nodo<T>*> pila;
+    Nodo<T>* actual = raiz;
+    while (actual || !pila.empty()) {
+        while (actual) {
+            pila.push(actual);
+            actual = actual->izquierda;
+        }
+        actual = pila.top(); pila.pop();
+        cola.push(actual->dato);  // ?? Insertar el dato en la cola
+        actual = actual->derecha;
+    }
+}
+
+template <class T>
+void ArbolAVL<T>::preOrderIterativo(Cola<T>& cola) {
+    if (!raiz) return;
+    Pila<Nodo<T>*> pila;
+    pila.push(raiz);
+    while (!pila.empty()) {
+        Nodo<T>* nodo = pila.top(); pila.pop();
+        cola.push(nodo->clave);
+        if (nodo->derecha) pila.push(nodo->derecha);
+        if (nodo->izquierda) pila.push(nodo->izquierda);
+    }
+}
+
 #endif
 
