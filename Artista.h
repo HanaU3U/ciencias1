@@ -15,6 +15,15 @@ struct Artista {
     string toCSV() {
         return formatearCSV(nombreArtistico) + " (" + formatearCSV(instrumento) + ")";
     }
+    
+    // Sobrecarga del operador <<
+    friend ostream& operator<<(ostream& os, const Artista& artista) {
+        os << "Nombre: " << artista.nombreReal 
+           << ", Alias: " << artista.nombreArtistico 
+           << ", País: " << artista.paisOrigen 
+           << ", Instrumento: " << artista.instrumento;
+        return os;
+    }
 };
 
 

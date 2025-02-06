@@ -7,10 +7,23 @@
 #include "Artista.h"
 #include "Version.h"
 #include "Lista.h"
+#include "ArbolAVL.h"
+
 
 using namespace std;
 
+int charToNumber(char c) {
+    return c - '0';
+}
 
+int stringToNumber(string palabra){
+	int total=0;
+	for(char i: palabra){
+		cout<<i<<" "<<charToNumber(i)<<endl;
+		total+=charToNumber(i);
+	}
+	return total;
+}
 
 // Función para cargar datos desde un archivo
 Lista<string> cargarDatos(const string& nombreArchivo) {
@@ -43,7 +56,56 @@ void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     archivo.close();
 }
 
+/*
 int main() {
+    ArbolAVL<int> arbol;
+    Cola<int> cola;
+    
+    // Insertar elementos en el árbol
+    arbol.insertar(10, 10);
+    arbol.insertar(20, 20);
+    arbol.insertar(30, 30);
+    arbol.insertar(40, 40);
+    arbol.insertar(50, 50);
+    arbol.insertar(25, 25);
+
+    // Imprimir recorrido In-Order
+    cout << "Recorrido In-Order: ";
+    arbol.inOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    cout << endl;
+
+    // Imprimir recorrido Pre-Order
+    cout << "Recorrido Pre-Order: ";
+    arbol.preOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    cout << endl;
+    
+    // Eliminar un nodo
+    arbol.eliminar(30);
+    cout << "Recorrido In-Order tras eliminar 30: ";
+    arbol.inOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
+*/
+
+
+int main() {
+	
+	Cola<Artista> cola;
+	
     Lista<Album> albumes;
     Lista<Cancion> canciones;
     Lista<Artista> artistas;
@@ -64,6 +126,7 @@ int main() {
     Artista artista2 = {"Ana López", "Anita", "España", "Voz"};
     Artista artista3 = {"Carlos Gómez", "Charlie", "Argentina", "Batería"};
     
+    /*
     datosArtistas.insert(artista1.toCSV());
     datosArtistas.insert(artista2.toCSV());
     datosArtistas.insert(artista3.toCSV());
@@ -125,6 +188,31 @@ int main() {
     guardarDatos("artistas.txt", datosArtistas);
     guardarDatos("versiones.txt", datosVersiones);
     guardarDatos("links.txt", datosLinks);
-
+*/
+    
+    char c=artista1.nombreArtistico[0];
+    cout<<"Artista 1"<<endl;
+    cout<<stringToNumber(artista1.nombreArtistico)<<endl;
+	char c2=artista2.nombreArtistico[0];
+    cout<<"Artista 2"<<endl;
+    cout<<stringToNumber(artista2.nombreArtistico)<<endl;
+    char c3=artista3.nombreArtistico[0];
+    cout<<"Artista 3"<<endl;
+    cout<<stringToNumber(artista3.nombreArtistico)<<endl;
+    
+    ArbolAVL<Artista> arbol;
+    
+    arbol.insertar(artista1, charToNumber(c));
+    arbol.insertar(artista2, charToNumber(c2));
+    arbol.insertar(artista3, charToNumber(c3));
+    
+    cout << "Recorrido In-Order: ";
+    arbol.inOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    
     return 0;
+    
 }
