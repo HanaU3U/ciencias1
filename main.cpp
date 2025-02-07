@@ -17,274 +17,6 @@
 
 using namespace std;
 
-/*
-
-// Función para cargar datos link desde un archivo
-Lista<ParClaveValor<Lista<Link>>> cargarDatosLink(const string& nombreArchivo) {
-    Lista<ParClaveValor<Lista<Link>>> datos;
-    ifstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
-    if (!archivo.is_open()) {
-        cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
-        return datos; // Retorna una lista vacía si no se puede abrir el archivo
-    }
-
-    string linea;
-    string nombreCancionActual = "";
-    Lista<Link> enlacesActuales;
-
-    while (getline(archivo, linea)) {
-        size_t posNombre = linea.find(';');
-        string nombreCancion = linea.substr(0, posNombre);
-
-        size_t posPlataforma = linea.find(';', posNombre + 1);
-        size_t posLinkCancion = linea.find(';', posPlataforma + 1);
-        size_t posLinkAlbum = linea.find(';', posLinkCancion + 1);
-
-        string nombrePlataforma = linea.substr(posNombre + 1, posPlataforma - (posNombre + 1));
-        string linkCancion = linea.substr(posLinkCancion + 1, posLinkAlbum - (posLinkCancion + 1));
-        string linkAlbum = linea.substr(posLinkAlbum + 1);
-
-        if (nombreCancion != nombreCancionActual) {
-            if (!nombreCancionActual.empty()) {
-                datos.insert(ParClaveValor<Lista<Link>>(nombreCancionActual, enlacesActuales));
-            }
-            nombreCancionActual = nombreCancion;
-            enlacesActuales = Lista<Link>(); // Reiniciar la lista de enlaces
-        }
-
-        // Crear un objeto Link y agregarlo a la lista de enlaces actuales
-        Link nuevoLink(nombrePlataforma, linkAlbum, linkCancion);
-        enlacesActuales.insert(nuevoLink);
-    }
-
-    // Agregar la última lista de enlaces
-    if (!nombreCancionActual.empty()) {
-        datos.insert(ParClaveValor<Lista<Link>>(nombreCancionActual, enlacesActuales));
-    }
-
-    archivo.close();
-    return datos;
-}
-
-
-
-Lista<ParClaveValor<Lista<Version>>> cargarDatosVersion(const string& nombreArchivo) {
-    Lista<ParClaveValor<Lista<Version>>> datos;
-    ifstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
-    if (!archivo.is_open()) {
-        cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
-        return datos; // Retorna una lista vacía si no se puede abrir el archivo
-    }
-
-    string linea;
-    string nombreCancionActual = "";
-    Lista<Version> versionesActuales;
-
-    // Saltar la primera línea (cabecera del CSV)
-    getline(archivo, linea);
-
-    while (getline(archivo, linea)) {
-        size_t posNombre = linea.find(';');
-        string nombreCancion = linea.substr(0, posNombre);
-
-        size_t posTituloVersion = linea.find(';', posNombre + 1);
-        size_t posTipoVersion = linea.find(';', posTituloVersion + 1);
-        size_t posArtistaPrincipal = linea.find(';', posTipoVersion + 1);
-        size_t posCiudadGrabacion = linea.find(';', posArtistaPrincipal + 1);
-        size_t posPaisGrabacion = linea.find(';', posCiudadGrabacion + 1);
-        size_t posGenero = linea.find(';', posPaisGrabacion + 1);
-        size_t posAnioPublicacion = linea.find(';', posGenero + 1);
-
-        string tituloVersion = linea.substr(posNombre + 1, posTituloVersion - (posNombre + 1));
-        string tipoVersion = linea.substr(posTituloVersion + 1, posTipoVersion - (posTituloVersion + 1));
-        string artistaPrincipal = linea.substr(posTipoVersion + 1, posArtistaPrincipal - (posTipoVersion + 1));
-        string ciudadGrabacion = linea.substr(posArtistaPrincipal + 1, posCiudadGrabacion - (posArtistaPrincipal + 1));
-        string paisGrabacion = linea.substr(posCiudadGrabacion + 1, posPaisGrabacion - (posCiudadGrabacion + 1));
-        string genero = linea.substr(posPaisGrabacion + 1, posGenero - (posPaisGrabacion + 1));
-        int anioPublicacion = stoi(linea.substr(posGenero + 1, posAnioPublicacion - (posGenero + 1)));
-
-        if (nombreCancion != nombreCancionActual) {
-            if (!nombreCancionActual.empty()) {
-                datos.insert(ParClaveValor<Lista<Version>>(nombreCancionActual, versionesActuales));
-            }
-            nombreCancionActual = nombreCancion;
-            versionesActuales = Lista<Version>(); // Reiniciar la lista de versiones
-        }
-
-        // Crear un objeto Version y agregarlo a la lista de versiones actuales
-        Version nuevaVersion(tituloVersion, tipoVersion, artistaPrincipal, ciudadGrabacion, paisGrabacion, genero, anioPublicacion);
-        versionesActuales.insert(nuevaVersion);
-    }
-
-    // Agregar la última lista de versiones
-    if (!nombreCancionActual.empty()) {
-        datos.insert(ParClaveValor<Lista<Version>>(nombreCancionActual, versionesActuales));
-    }
-
-    archivo.close();
-    return datos;
-}
-
-*/
-
-/*
-Lista<ParClaveValor<Lista<Cancion>>> cargarDatosCancion(const string& nombreArchivo) {
-    Lista<ParClaveValor<Lista<Cancion>>> datos;
-    ifstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
-    if (!archivo.is_open()) {
-        cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
-        return datos; // Retorna una lista vacía si no se puede abrir el archivo
-    }
-
-    string linea;
-    string albumActual = "";
-    Lista<Cancion> cancionesActuales;
-
-    // Saltar la primera línea (cabecera del CSV)
-    getline(archivo, linea);
-
-    while (getline(archivo, linea)) {
-        size_t posAlbum = linea.find(';');
-        string album = linea.substr(0, posAlbum);
-
-        size_t posNombreArtistico = linea.find(';', posAlbum + 1);
-        size_t posNombreCancion = linea.find(';', posNombreArtistico + 1);
-        size_t posDuracion = linea.find(';', posNombreCancion + 1);
-        size_t posNumArtistasPrincipales = linea.find(';', posDuracion + 1);
-        size_t posCompositorLetra = linea.find(';', posNumArtistasPrincipales + 1);
-        size_t posCompositorMusica = linea.find(';', posCompositorLetra + 1);
-        size_t posArreglosMusicales = linea.find(';', posCompositorMusica + 1);
-        size_t posCiudadGrabacion = linea.find(';', posArreglosMusicales + 1);
-        size_t posPaisGrabacion = linea.find(';', posCiudadGrabacion + 1);
-        size_t posAnioPrimeraPublicacion = linea.find(';', posPaisGrabacion + 1);
-        size_t posGenero = linea.find(';', posAnioPrimeraPublicacion + 1);
-
-        string nombreArtistico = linea.substr(posAlbum + 1, posNombreArtistico - (posAlbum + 1));
-        string nombreCancion = linea.substr(posNombreArtistico + 1, posNombreCancion - (posNombreArtistico + 1));
-        string duracion = linea.substr(posNombreCancion + 1, posDuracion - (posNombreCancion + 1));
-        int numArtistasPrincipales = stoi(linea.substr(posDuracion + 1, posNumArtistasPrincipales - (posDuracion + 1)));
-        string compositorLetra = linea.substr(posNumArtistasPrincipales + 1, posCompositorLetra - (posNumArtistasPrincipales + 1));
-        string compositorMusica = linea.substr(posCompositorLetra + 1, posCompositorMusica - (posCompositorLetra + 1));
-        string arreglosMusicales = linea.substr(posCompositorMusica + 1, posArreglosMusicales - (posCompositorMusica + 1));
-        string ciudadGrabacion = linea.substr(posArreglosMusicales + 1, posCiudadGrabacion - (posArreglosMusicales + 1));
-        string paisGrabacion = linea.substr(posCiudadGrabacion + 1, posPaisGrabacion - (posCiudadGrabacion + 1));
-        int anioPrimeraPublicacion = stoi(linea.substr(posPaisGrabacion + 1, posAnioPrimeraPublicacion - (posPaisGrabacion + 1)));
-        string genero = linea.substr(posAnioPrimeraPublicacion + 1, posGenero - (posAnioPrimeraPublicacion + 1));
-
-        if (album != albumActual) {
-            if (!albumActual.empty()) {
-                datos.insert(ParClaveValor<Lista<Cancion>>(albumActual, cancionesActuales));
-            }
-            albumActual = album;
-            cancionesActuales = Lista<Cancion>(); // Reiniciar la lista de canciones
-        }
-
-        // Crear un objeto Cancion y agregarlo a la lista de canciones actuales
-        Cancion nuevaCancion(nombreArtistico, nombreCancion, duracion, numArtistasPrincipales, compositorLetra, compositorMusica, arreglosMusicales, ciudadGrabacion, paisGrabacion, anioPrimeraPublicacion, genero);
-        cancionesActuales.insert(nuevaCancion);
-    }
-
-    // Agregar la última lista de canciones
-    if (!albumActual.empty()) {
-        datos.insert(ParClaveValor<Lista<Cancion>>(albumActual, cancionesActuales));
-    }
-
-    archivo.close();
-    return datos;
-}
-
-Lista<Album> cargarDatosAlbum(const string& nombreArchivo) {
-    Lista<Album> datos;
-    ifstream archivo(nombreArchivo.c_str());
-
-    if (!archivo.is_open()) {
-        cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
-        return datos;
-    }
-
-    string linea;
-    getline(archivo, linea); // Leer y descartar la primera línea (encabezado)
-
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-        string titulo, nombreArtistico, paisGrabacion, anioStr, coverArt, fotografia, editora, estudioGrabacion;
-        
-        // Leer cada campo separado por ';'
-        getline(ss, titulo, ';');
-        getline(ss, nombreArtistico, ';');
-        getline(ss, anioStr, ';');
-        getline(ss, coverArt, ';');
-        getline(ss, fotografia, ';');
-        getline(ss, editora, ';');
-        getline(ss, estudioGrabacion, ';');
-
-        // Convertir el año a entero
-        int anioPublicacion = 0;
-        istringstream(anioStr) >> anioPublicacion; 
-        // Crear el objeto Album utilizando el constructor
-        Album album(titulo, nombreArtistico, paisGrabacion, anioPublicacion, coverArt, fotografia, editora, estudioGrabacion);
-        
-        // Insertar en la lista
-        datos.insert(album);
-    }
-
-    archivo.close();
-    return datos;
-}
-
-Lista<ParClaveValor<Lista<Artista>>> cargarDatosArtista(const string& nombreArchivo) {
-    Lista<ParClaveValor<Lista<Artista>>> datos;
-    ifstream archivo(nombreArchivo.c_str());
-
-    if (!archivo.is_open()) {
-        cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
-        return datos;
-    }
-
-    string linea;
-    getline(archivo, linea); // Leer y descartar la primera línea (encabezado)
-
-    string nombreArtisticoActual = "";
-    Lista<Artista> artistasActuales;
-
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-        string nombreReal, nombreArtistico, pais, instrumento;
-
-        // Leer los campos del CSV
-        getline(ss, nombreReal, ';');
-        getline(ss, nombreArtistico, ';');
-        getline(ss, pais, ';');
-        getline(ss, instrumento, ';');
-
-        Artista nuevoArtista(nombreReal, nombreArtistico, pais, instrumento);
-
-        // Si seguimos con el mismo nombre artístico, agregamos el artista a la lista
-        if (nombreArtistico == nombreArtisticoActual) {
-            artistasActuales.insert(nuevoArtista);
-        } else {
-            // Si ya tenemos una lista anterior, la agregamos a la estructura de datos
-            if (!nombreArtisticoActual.empty()) {
-                datos.insert(ParClaveValor<Lista<Artista>>(nombreArtisticoActual, artistasActuales));
-            }
-
-            // Reiniciar con el nuevo nombre artístico
-            nombreArtisticoActual = nombreArtistico;
-            artistasActuales = Lista<Artista>(); // Reiniciar la lista de artistas
-            artistasActuales.insert(nuevoArtista);
-        }
-    }
-
-    // Guardar la última agrupación de artistas
-    if (!nombreArtisticoActual.empty()) {
-        datos.insert(ParClaveValor<Lista<Artista>>(nombreArtisticoActual, artistasActuales));
-    }
-
-    archivo.close();
-    return datos;
-}
-
-*/
 
 Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string& archivoCanciones) {
     Lista<Album> albumes;
@@ -331,27 +63,27 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
 
     while (getline(archivoCancions, lineaCancion)) {
         stringstream ss(lineaCancion);
-        string tituloAlbum,nombreArtistico, tituloCancion, duracion, genero, compositorLetra, compositorMusica, arreglosMusicales, paisGrabacion, ciudadGrabacion;
+        string tituloAlbum,nombreArtistico,tituloCancion, duracion, genero, compositorLetra, compositorMusica, arreglosMusicales, paisGrabacion, ciudadGrabacion;
         int numArtistasPrincipales, anioPublicacion;
 
         getline(ss, tituloAlbum, ';');
         getline(ss, tituloCancion, ';');
         getline(ss, duracion, ';');
         ss >> numArtistasPrincipales;
-        ss.ignore(); // Ignorar el delimitador
         getline(ss, compositorLetra, ';');
         getline(ss, compositorMusica, ';');
         getline(ss, arreglosMusicales, ';');
         getline(ss, nombreArtistico, ';');
-        getline(ss, paisGrabacion, ';');
         getline(ss, ciudadGrabacion, ';');
+        getline(ss, paisGrabacion, ';');
         ss >> anioPublicacion;
         getline(ss, genero, ';');
         
 
         Cancion nuevaCancion(nombreArtistico, tituloCancion, duracion, numArtistasPrincipales,
-            compositorLetra, compositorMusica, arreglosMusicales, 
+            compositorLetra, compositorMusica, arreglosMusicales,
             ciudadGrabacion, paisGrabacion, anioPublicacion, genero);
+
 
         // Buscar el álbum correspondiente y agregar la canción
         for (auto& album : albumes) {
@@ -365,6 +97,131 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
 
     return albumes;
 }
+
+
+void cargarLinks(Lista<Album>& albumes, const string& archivoLinks) {
+    ifstream archivo(archivoLinks);
+    if (!archivo.is_open()) {
+        cerr << "Error al abrir el archivo de links: " << archivoLinks << endl;
+        return;
+    }
+
+    string linea;
+    getline(archivo, linea); // Leer y descartar la primera línea (encabezado)
+
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string tituloCancion, nombrePlataforma, linkAlbum, linkCancion;
+
+        getline(ss, tituloCancion, ';');
+        getline(ss, nombrePlataforma, ';');
+        getline(ss, linkAlbum, ';');
+        getline(ss, linkCancion, ';');
+
+        Link nuevoLink(nombrePlataforma, linkAlbum, linkCancion);
+
+        // Buscar la canción correspondiente y agregar el link
+        for (auto& album : albumes) {
+            for (auto& cancion : album.listadoCanciones) {
+                if (cancion.nombreCancion == tituloCancion) {
+                    cancion.listadoLink.insert(nuevoLink);
+                    break;
+                }
+            }
+        }
+    }
+    archivo.close();
+}
+
+void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
+    ifstream archivo(archivoVersiones);
+    if (!archivo.is_open()) {
+        cerr << "Error al abrir el archivo de versiones: " << archivoVersiones << endl;
+        return;
+    }
+
+    string linea;
+    getline(archivo, linea); // Leer y descartar la primera línea (encabezado)
+
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string tituloCancion, tituloVersion, tipoVersion, artistaPrincipal, ciudadGrabacion, paisGrabacion, genero;
+        int anioPublicacion;
+
+        getline(ss, tituloCancion, ';');
+        getline(ss, tituloVersion, ';');
+        getline(ss, tipoVersion, ';');
+        getline(ss, artistaPrincipal, ';');
+        getline(ss, ciudadGrabacion, ';');
+        getline(ss, paisGrabacion, ';');
+        getline(ss, genero, ';');
+        ss >> anioPublicacion;
+
+        Version nuevaVersion(tituloVersion, tipoVersion, artistaPrincipal, ciudadGrabacion, paisGrabacion, genero, anioPublicacion);
+
+        // Buscar la canción correspondiente y agregar la versión
+        for (auto& album : albumes) {
+            for (auto& cancion : album.listadoCanciones) {
+                if (cancion.nombreCancion == tituloCancion) {
+                    cancion.listadoVersion.insert(nuevaVersion);
+                    break;
+                }
+            }
+        }
+    }
+    archivo.close();
+}
+
+void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
+    ifstream archivo(archivoArtistas);
+    if (!archivo.is_open()) {
+        cerr << "Error al abrir el archivo de artistas: " << archivoArtistas << endl;
+        return;
+    }
+
+    string linea;
+    getline(archivo, linea); // Leer y descartar la primera línea (encabezado)
+
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string nombreReal, nombreArtistico, pais, instrumento;
+
+        getline(ss, nombreReal, ';');
+        getline(ss, nombreArtistico, ';');
+        getline(ss, pais, ';');
+        getline(ss, instrumento, ';');
+
+        Artista nuevoArtista(nombreReal, nombreArtistico, pais, instrumento);
+        
+        cout<<nombreArtistico<<endl;
+
+        // Buscar la canción o versión correspondiente y agregar el artista
+        for (auto& album : albumes) {
+            for (auto& cancion : album.listadoCanciones) {
+            	//cout<<cancion.nombreArtistico<<" == "<<nombreArtistico<<endl;
+                if (cancion.nombreArtistico == nombreArtistico) {
+                    cancion.listadoArtistas.insert(nuevoArtista);
+                }
+                for (auto& version : cancion.listadoVersion) {
+                    if (version.artistaPrincipal == nombreArtistico) {
+                        version.listadoArtistasPrincipales.insert(nuevoArtista);
+                    }
+                }
+            }
+        }
+    }
+    archivo.close();
+}
+
+Lista<Album> cargarTodo(const string& archivoAlbumes, const string& archivoCanciones, const string& archivoLinks, const string& archivoVersiones, const string& archivoArtistas) {
+    Lista<Album> albumes = cargarAlbumesYCanciones(archivoAlbumes, archivoCanciones);
+    cargarLinks(albumes, archivoLinks);
+    cargarVersiones(albumes, archivoVersiones);
+    cargarArtistas(albumes, archivoArtistas);
+    return albumes;
+}
+
+
 // Función para guardar datos en un archivo
 void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     ofstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
@@ -440,36 +297,33 @@ int main() {
 	
 	Cola<Artista> cola;
 	
-    Lista<Album> albumes;
-    Lista<Cancion> canciones;
-    Lista<Artista> artistas;
-    Lista<Version> versiones;
-    Lista<Link> links;
+    Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "links.txt", "versiones.txt", "artistas.txt");
 
-    // Cargar datos desde archivos
-    //Lista<Album> datosAlbumes = cargarDatosAlbum("albumes.txt");
-    //Lista<ParClaveValor<Lista<Cancion>>> datosCanciones = cargarDatosCancion("canciones.txt");
-    //Lista<string> datosArtistas = cargarDatosArtista("artistas.txt");
-    //Lista<string> datosVersiones = cargarDatosVersion("versiones.txt");
-    //Lista<string> datosLinks = cargarDatosLink("links.txt");
-    
-    Lista<Album> datosAlbumes = cargarAlbumesYCanciones("albumes.txt", "canciones.txt");
-    
-    
-    cout<<datosAlbumes.get(0).titulo<<endl;
-    
-    
-    // Imprimir los álbumes y sus canciones
-    for (auto& album : datosAlbumes) {
+    // Imprimir los álbumes, canciones, links y versiones
+    for (auto& album : albumes) {
         cout << "Album: " << album.titulo << " (" << album.anioPublicacion << ")" << endl;
         cout << "Artista: " << album.nombreArtistico << endl;
         cout << "Canciones:" << endl;
         for (auto& cancion : album.listadoCanciones) {
             cout << "  - " << cancion.nombreCancion << " (" << cancion.duracion << ")" << endl;
+            cout << "    Links:" << endl;
+            for (auto& link : cancion.listadoLink) {
+                cout << "      * " << link.nombrePlataforma << ": " << link.linkCancion << endl;
+            }
+            cout << "    Versiones:" << endl;
+            for (auto& version : cancion.listadoVersion) {
+                cout << "      * " << version.tituloVersion << " (" << version.tipoVersion << ")" << endl;
+            }
+            cout << "    Artistas:" << endl;
+            for (auto& artista : cancion.listadoArtistas) {
+                cout << "      - " << artista.nombreReal << " (" << artista.instrumento << ")" << endl;
+            }
         }
         cout << endl;
     }
 
+    
+    
     return 0;
     /*
 

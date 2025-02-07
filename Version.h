@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "Lista.h"
-#include "Link.h"
 #include "Artista.h"
 #include "FormatearCSV.h"
 
@@ -19,7 +18,6 @@ struct Version {
     string paisGrabacion;
     string genero;
     int anioPublicacion;
-    Lista<string> listadoLinks;
     
     Version(string tituloVersion, string tipoVersion, string artistaPrincipal, 
             string ciudadGrabacion, string paisGrabacion, string genero, int anioPublicacion)

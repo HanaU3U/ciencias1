@@ -7,10 +7,10 @@ struct nodo {
     T info;
 
     // Constructor por defecto
-    nodo() : sig(nullptr), info() {}
+    nodo() : sig(NULL), info() {}
 
     // Constructor con parámetros
-    nodo(const T& dato) : sig(nullptr), info(dato) {}
+    nodo(const T& dato) : sig(NULL), info(dato) {}
 };
 
 template <class T>

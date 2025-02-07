@@ -3,6 +3,7 @@
 #include "Lista.h"
 #include "FormatearCSV.h"
 #include "Version.h"
+#include "Link.h"
 
 #ifndef CANCION_H
 #define CANCION_H
@@ -27,6 +28,7 @@ struct Cancion {
 	
     Lista<Artista> listadoArtistas;
     Lista<Version> listadoVersion;
+    Lista<Link> listadoLink;
     
     Cancion(string nombreArtistico, string nombreCancion, string duracion, int numArtistasPrincipales,
             string compositorLetra, string compositorMusica, string arreglosMusicales, 
