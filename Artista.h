@@ -11,9 +11,13 @@ struct Artista {
     string nombreArtistico;
     string paisOrigen;
     string instrumento;
+    Artista* sigInstrumento;
     
     string toCSV() {
-        return formatearCSV(nombreArtistico) + " (" + formatearCSV(instrumento) + ")";
+        return formatearCSV(nombreReal) + ";" 
+             + formatearCSV(nombreArtistico) + ";" 
+             + formatearCSV(paisOrigen) + ";" 
+             + formatearCSV(instrumento);
     }
     
     // Sobrecarga del operador <<
@@ -22,8 +26,6 @@ struct Artista {
         return os;
     }
 };
-
-
 
 
 

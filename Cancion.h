@@ -3,6 +3,7 @@
 #include "Link.h"
 #include "Lista.h"
 #include "FormatearCSV.h"
+#include "Album.h"
 
 #ifndef CANCION_H
 #define CANCION_H
@@ -11,7 +12,6 @@ struct Cancion {
     string nombreArtistico;
     string nombreCancion;
     string duracion;
-    Lista<Artista> listadoArtistas;
     int numArtistasPrincipales;
     string compositorLetra;
     string compositorMusica;
@@ -20,24 +20,28 @@ struct Cancion {
     string paisGrabacion;
     int anioPrimeraPublicacion;
     string genero;
+    Cancion* sigGenero;
+    Cancion* sigCompositor;
+	Cancion* sigTipoVersion;
+	Cancion* sigPlataforma;
+	Cancion* sigPais;
     Lista<Link> listadoLinks;
+    Lista<Artista> listadoArtistas;
+    Lista<Version> listadoVersion;
     
-    string toCSV() {
-        string result = formatearCSV(nombreCancion) + ";" + formatearCSV(duracion) + ";" + formatearCSV(genero) + ";";
-        
-        // Lista de artistas
-        for (size_t i = 0; i < listadoArtistas.get_size(); ++i) {
-            result += listadoArtistas.get(i).toCSV();
-            if (i < listadoArtistas.get_size() - 1) result += ",";
-        }
-        result += ";";
-
-        // Lista de links
-        for (size_t i = 0; i < listadoLinks.get_size(); ++i) {
-            result += listadoLinks.get(i).toCSV();
-            if (i < listadoLinks.get_size() - 1) result += ",";
-        }
-
+    
+    string toCSV(const Album& alb) {
+        string result = formatearCSV(alb.titulo) + ";"  // Campo "Album"
+                      + formatearCSV(nombreCancion) + ";"  // Campo "Nombre"
+                      + formatearCSV(duracion) + ";"  // Campo "Duracion"
+                      + formatearCSV(genero) + ";"  // Campo "Genero"
+                      + formatearCSV(nombreArtistico) + ";"  // Campo "Nombre Artístico"
+                      + formatearCSV(compositorLetra) + ";"  // Campo "Compositor Letra"
+                      + formatearCSV(compositorMusica) + ";"  // Campo "Compositor Música"
+                      + formatearCSV(arreglosMusicales) + ";"  // Campo "Arreglos Musicales"
+                      + formatearCSV(ciudadGrabacion) + ";"  // Campo "Ciudad Grabación"
+                      + formatearCSV(paisGrabacion) + ";"  // Campo "País Grabación"
+                      + formatearCSV(to_string(anioPrimeraPublicacion));  // Campo "Año Publicación"
         return result;
     }
 };

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "FormatearCSV.h"
+#include "Cancion.h"
 
 #ifndef LINK_H
 #define LINK_H
@@ -13,8 +14,13 @@ struct Link {
     string linkAlbum;
     string linkCancion;
     
-    string toCSV()  {
-        return formatearCSV(nombrePlataforma) + ";" + formatearCSV(linkCancion);
+    string toCSV(const Cancion& can)  {
+        string result = formatearCSV(can.nombreCancion) + ";" 
+			+ formatearCSV(nombrePlataforma) + ";" 
+			+ formatearCSV(linkAlbum)+ ";"
+			+ formatearCSV(linkCancion);
+			
+		return result;
     }
 };
 

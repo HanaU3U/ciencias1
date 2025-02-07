@@ -7,8 +7,8 @@
 #include "Artista.h"
 #include "Version.h"
 #include "Lista.h"
+#include "Cabecera.h"
 #include "ArbolAVL.h"
-#include "Multilista.h"
 
 
 using namespace std;
@@ -56,6 +56,17 @@ void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     }
     archivo.close();
 }
+
+Lista<Cabecera> editora;
+Lista<Cabecera> fotografia;
+Lista<Cabecera> estudio;
+Lista<Cabecera> pais_album;
+Lista<Cabecera> pais_can;
+Lista<Cabecera> genero;
+Lista<Cabecera> compositor;
+Lista<Cabecera> tipo_version;
+Lista<Cabecera> plataforma;
+Lista<Cabecera> instrumento;
 
 /*
 int main() {
@@ -105,7 +116,7 @@ int main() {
 
 int main() {
 	
-	/*Cola<Artista> cola;
+	Cola<Artista> cola;
 	
     Lista<Album> albumes;
     Lista<Cancion> canciones;
@@ -127,7 +138,7 @@ int main() {
     Artista artista2 = {"Ana López", "Anita", "España", "Voz"};
     Artista artista3 = {"Carlos Gómez", "Charlie", "Argentina", "Batería"};
     
-    /*
+    
     datosArtistas.insert(artista1.toCSV());
     datosArtistas.insert(artista2.toCSV());
     datosArtistas.insert(artista3.toCSV());
@@ -214,33 +225,8 @@ int main() {
         cola.pop();
     }
     
-    return 0;*/
-    
-    Multilista<Album> listaAlbums;
-    
-    Album album1 = {"Mi Primer Álbum", "Juan Pérez", "México", 2023, "cover.jpg", "foto.jpg",
-                    "Sony Music", "Estudio A", Lista<string>(), Lista<Cancion>()};
-
-    Album album2 = {"Rock Latino", "Los Rockeros", "Argentina", 2020, "cover2.jpg", "foto2.jpg",
-                    "Universal", "Estudio B", Lista<string>(), Lista<Cancion>()};
-
-    listaAlbums.InsertarM(album1);
-    listaAlbums.InsertarM(album2);
-
-    // Insertar canciones en la sublista de un álbum
-    Cancion cancion1 = {"Juan Pérez", "Canción 1", "3:45", Lista<Artista>(), 1, "Compositor A", "Compositor B",
-                        "Arreglos X", "CDMX", "México", 2022, "Rock", Lista<Link>()};
-
-    Cancion cancion2 = {"Juan Pérez", "Canción 2", "4:12", Lista<Artista>(), 1, "Compositor C", "Compositor D",
-                        "Arreglos Y", "Monterrey", "México", 2023, "Pop", Lista<Link>()};
-
-    listaAlbums.InsertarEnSublista("Mi Primer Álbum", cancion1);
-	listaAlbums.InsertarEnSublista("Mi Primer Álbum", cancion2);
-
-    cout << "Lista de Álbumes y Canciones:\n";
-    listaAlbums.Mostrar();
-
     return 0;
+
     
     
 }
