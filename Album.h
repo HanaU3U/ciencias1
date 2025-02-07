@@ -18,11 +18,19 @@ struct Album {
     string fotografia;
     string editora;
     string estudioGrabacion;
+    
     Album* sigEditora;
     Album* sigFotografia;
     Album* sigEstudio;
     Album* sigPais;
     Lista<Cancion> listadoCanciones;
+    
+    Album(string titulo, string nombreArtistico, string paisGrabacion, int anioPublicacion,
+          string coverArt, string fotografia, string editora, string estudioGrabacion)
+        : titulo(titulo), nombreArtistico(nombreArtistico), paisGrabacion(paisGrabacion),
+          anioPublicacion(anioPublicacion), coverArt(coverArt), fotografia(fotografia),
+          editora(editora), estudioGrabacion(estudioGrabacion), 
+          sigEditora(NULL), sigFotografia(NULL), sigEstudio(NULL), sigPais(NULL) {}
     
     string toCSV() {
         string result = formatearCSV(titulo) + ";" 

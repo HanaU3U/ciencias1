@@ -22,6 +22,12 @@ struct Version {
     int anioPublicacion;
     Lista<string> listadoLinks;
     
+    Version(string tituloVersion, string tipoVersion, string artistaPrincipal, 
+            string ciudadGrabacion, string paisGrabacion, string genero, int anioPublicacion)
+        : tituloVersion(tituloVersion), tipoVersion(tipoVersion), artistaPrincipal(artistaPrincipal),
+          ciudadGrabacion(ciudadGrabacion), paisGrabacion(paisGrabacion),
+          genero(genero), anioPublicacion(anioPublicacion) {}
+    
     string toCSV(const Cancion& can) {
         string result = formatearCSV(can.nombreCancion) + ";"
                       + formatearCSV(tituloVersion) + ";" 

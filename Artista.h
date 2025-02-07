@@ -13,6 +13,11 @@ struct Artista {
     string instrumento;
     Artista* sigInstrumento;
     
+    
+    Artista(string nombreReal, string nombreArtistico, string paisOrigen, string instrumento)
+        : nombreReal(nombreReal), nombreArtistico(nombreArtistico), paisOrigen(paisOrigen),
+          instrumento(instrumento), sigInstrumento(NULL) {}
+    
     string toCSV() {
         return formatearCSV(nombreReal) + ";" 
              + formatearCSV(nombreArtistico) + ";" 

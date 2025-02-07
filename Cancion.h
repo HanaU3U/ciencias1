@@ -29,6 +29,16 @@ struct Cancion {
     Lista<Artista> listadoArtistas;
     Lista<Version> listadoVersion;
     
+    Cancion(string nombreArtistico, string nombreCancion, string duracion, int numArtistasPrincipales,
+            string compositorLetra, string compositorMusica, string arreglosMusicales, 
+            string ciudadGrabacion, string paisGrabacion, int anioPrimeraPublicacion, string genero)
+        : nombreArtistico(nombreArtistico), nombreCancion(nombreCancion), duracion(duracion), 
+          numArtistasPrincipales(numArtistasPrincipales), compositorLetra(compositorLetra), 
+          compositorMusica(compositorMusica), arreglosMusicales(arreglosMusicales), 
+          ciudadGrabacion(ciudadGrabacion), paisGrabacion(paisGrabacion), 
+          anioPrimeraPublicacion(anioPrimeraPublicacion), genero(genero),
+          sigGenero(NULL), sigCompositor(NULL), sigTipoVersion(NULL), 
+          sigPlataforma(NULL), sigPais(NULL) {}
     
     string toCSV(const Album& alb) {
         string result = formatearCSV(alb.titulo) + ";"  // Campo "Album"
