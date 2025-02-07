@@ -32,6 +32,10 @@ struct Album {
           anioPublicacion(anioPublicacion), coverArt(coverArt), fotografia(fotografia),
           editora(editora), estudioGrabacion(estudioGrabacion), 
           sigEditora(NULL), sigFotografia(NULL), sigEstudio(NULL), sigPais(NULL) {}
+          
+    Album() : titulo(""), nombreArtistico(""), paisGrabacion(""), anioPublicacion(0),
+              coverArt(""), fotografia(""), editora(""), estudioGrabacion(""),
+              sigEditora(NULL), sigFotografia(NULL), sigEstudio(NULL), sigPais(NULL) {}   
     
     string toCSV() {
         string result = formatearCSV(titulo) + ";" 

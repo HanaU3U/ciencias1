@@ -1,56 +1,11 @@
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
 
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
-
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
-
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
-
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
-
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
-
-Colores del Mundo;Varios Artistas;2023;Latinoamérica;Universal Music;Estudios Latam
-Nombre Canción;Duración;Género;Artistas;Links
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Links del álbum;
-https://spotify.com/album123
-
+Thriller;Michael Jackson;Estados Unidos;1982;Dick Zimmerman;Dick Zimmerman;Epic Records;Westlake Recording Studios
+Back in Black;AC/DC;Estados Unidos;1980;Bob Defrin;Bob Defrin;Albert Productions;Compass Point Studios
+The Dark Side of the Moon;Pink Floyd;Estados Unidos;1973;Storm Thorgerson;George Hardie;Harvest Records;Abbey Road Studios
+Rumours;Fleetwood Mac;Australia;1977;Herbert Worthington;Herbert Worthington;Warner Bros. Records;Record Plant
+Abbey Road;The Beatles;Reino Unido;1969;Iain Macmillan;Iain Macmillan;Apple Records;Abbey Road Studios
+Hotel California;Eagles;Estados Unidos;1976;David Alexander;David Alexander;Asylum Records;Criteria Studios
+Born in the U.S.A.;Bruce Springsteen;Estados Unidos;1984;Annie Leibovitz;Annie Leibovitz;Columbia Records;The Power Station
+Nevermind;Nirvana;Estados Unidos;1991;Kirk Weddle;Kirk Weddle;DGC Records;Sound City Studios
+Led Zeppelin IV;Led Zeppelin;Australia;1971;Graphreaks;Graphreaks;Atlantic Records;Headley Grange
+21;Adele;Reino Unido;2011;Lauren Dukoff;Lauren Dukoff;Columbia Records;Shangri-La Studios

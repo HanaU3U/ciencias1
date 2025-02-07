@@ -38,6 +38,15 @@ struct Cancion {
           anioPrimeraPublicacion(anioPrimeraPublicacion), genero(genero),
           sigGenero(NULL), sigCompositor(NULL), sigTipoVersion(NULL), 
           sigPlataforma(NULL), sigPais(NULL) {}
+          
+    Cancion()
+        : nombreArtistico(""), nombreCancion(""), duracion(""), 
+          numArtistasPrincipales(0), compositorLetra(""), 
+          compositorMusica(""), arreglosMusicales(""), 
+          ciudadGrabacion(""), paisGrabacion(""), 
+          anioPrimeraPublicacion(0), genero(""),
+          sigGenero(NULL), sigCompositor(NULL), sigTipoVersion(NULL), 
+          sigPlataforma(NULL), sigPais(NULL) {}      
     
     string toCSV(const string& clave) {
         string result = formatearCSV(clave) + ";"  // Campo "Album"

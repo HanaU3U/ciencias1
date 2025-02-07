@@ -3,74 +3,64 @@
 
 template <class T>
 struct nodo {
-			nodo<T> *sig;
-			T info;
-		};
-		
-		
-template <class T>
-class Lista{
-	private:
-		nodo <T> *cab;
-		int tam;
-		
-	
-	public: Lista(){
-		cab = NULL;
-		tam=0;
-	}	
-			bool empty();
-			int get_size();
-			void insert(T dato);
-			void insert_pos(T dato, int pos);
-			bool drop(int pos);
-			bool edit(int pos, T datonuevo);
-			T get(int pos);
-			void print();
-			
-			struct iterator {
-		        nodo<T>* actual;
-		
-		        iterator(nodo<T>* nodoActual) : actual(nodoActual) {}
-		
-		        T& operator*() { return actual->info; }
-		        iterator& operator++() { actual = actual->sig; return *this; }
-		        bool operator!=(const iterator& otro) const { return actual != otro.actual; }
-		    };
-		
-		    iterator begin() const  { return iterator(cab); }
-		    iterator end() const  { return iterator(NULL); }
+    nodo<T>* sig;
+    T info;
 
+    // Constructor por defecto
+    nodo() : sig(nullptr), info() {}
+
+    // Constructor con parámetros
+    nodo(const T& dato) : sig(nullptr), info(dato) {}
 };
 
 template <class T>
-bool Lista<T>::empty()
-{
-	return tam==0;
-}
+class Lista {
+private:
+    nodo<T>* cab;
+    int tam;
+
+public:
+    Lista() : cab(NULL), tam(0) {}
+
+    // Métodos de la lista...
+    bool empty() { return tam == 0; }
+    int get_size() { return tam; }
+    void insert(T dato);
+    void insert_pos(T dato, int pos);
+    bool drop(int pos);
+    bool edit(int pos, T datonuevo);
+    T get(int pos);
+    void print();
+
+    struct iterator {
+        nodo<T>* actual;
+
+        iterator(nodo<T>* nodoActual) : actual(nodoActual) {}
+
+        T& operator*() { return actual->info; }
+        iterator& operator++() { actual = actual->sig; return *this; }
+        bool operator!=(const iterator& otro) const { return actual != otro.actual; }
+    };
+
+    iterator begin() const { return iterator(cab); }
+    iterator end() const { return iterator(nullptr); }
+};
 
 template <class T>
-int Lista<T>::get_size()
-{
-	return tam;
+void Lista<T>::insert(T dato) {
+    nodo<T>* aux = new nodo<T>(dato);
+    if (empty()) {
+        cab = aux;
+    } else {
+        nodo<T>* temp = cab;
+        while (temp->sig != nullptr) {
+            temp = temp->sig;
+        }
+        temp->sig = aux;
+    }
+    tam++;
 }
 
-template <class T>
-void Lista<T>::insert(T dato)
-{
-	nodo <T> *aux=new nodo<T>();
-	aux->info=dato;
-	if(empty()){
-		cab=aux;
-	}else{
-		nodo <T> *temp=cab;
-		while(temp->sig != NULL){
-			temp=temp->sig;
-		}
-		temp->sig=aux;
-	}
-	tam++;
-}
 
 template <class T>
 void Lista<T>::insert_pos(T dato, int pos)
@@ -169,5 +159,7 @@ T Lista<T>::get(int pos)
 	}
 }
 
-#endif
 
+
+
+#endif

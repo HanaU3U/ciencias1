@@ -1,12 +1,36 @@
-JP (Guitarra)
-Anita (Voz)
-Charlie (Batería)
-JP (Guitarra)
-Anita (Voz)
-Charlie (Batería)
-JP (Guitarra)
-Anita (Voz)
-Charlie (Batería)
-JP (Guitarra)
-Anita (Voz)
-Charlie (Batería)
+
+Michael Joseph Jackson;Michael Jackson;Estados Unidos;Voz
+Angus Young;AC/DC;Australia;Guitarra
+Malcolm Young;AC/DC;Australia;Guitarra
+Brian Johnson;AC/DC;Australia;Voz
+Bon Scott;AC/DC;Australia;Voz
+Cliff Williams;AC/DC;Australia;Bajo
+Phil Rudd;AC/DC;Australia;Bateria
+Roger Waters;Pink Floyd;Reino Unido;Bajo
+David Gilmour;Pink Floyd;Reino Unido;Guitarra
+Richard Wright;Pink Floyd;Reino Unido;Teclado
+Nick Mason;Pink Floyd;Reino Unido;Bateria
+Syd Barrett;Pink Floyd;Reino Unido;Guitarra
+Mick Fleetwood;Fleetwood Mac;Reino Unido;Bateria
+John McVie;Fleetwood Mac;Reino Unido;Bajo
+Christine McVie;Fleetwood Mac;Reino Unido;Teclado
+Stevie Nicks;Fleetwood Mac;Reino Unido;Voz
+Lindsey Buckingham;Fleetwood Mac;Reino Unido;Guitarra
+Peter Green;Fleetwood Mac;Reino Unido;Guitarra
+John Lennon;The Beatles;Reino Unido;Voz
+Paul McCartney;The Beatles;Reino Unido;Bajo
+George Harrison;The Beatles;Reino Unido;Guitarra
+Ringo Starr;The Beatles;Reino Unido;Bateria
+Don Henley;Eagles;Estados Unidos;Bateria
+Glenn Frey;Eagles;Estados Unidos;Guitarra
+Joe Walsh;Eagles;Estados Unidos;Guitarra
+Timothy B. Schmit;Eagles;Estados Unidos;Bajo
+Randy Meisner;Eagles;Estados Unidos;Voz
+Kurt Cobain;Nirvana;Estados Unidos;Voz
+Krist Novoselic;Nirvana;Estados Unidos;Guitarra
+Dave Grohl;Nirvana;Estados Unidos;Bateria
+Robert Plant;Led Zeppelin;Reino Unido;Voz
+Jimmy Page;Led Zeppelin;Reino Unido;Guitarra
+John Paul Jones;Led Zeppelin;Reino Unido;Teclado
+John Bonham;Led Zeppelin;Reino Unido;Bateria
+Adele Laurie Blue Adkins;Adele;Reino Unido;Voz

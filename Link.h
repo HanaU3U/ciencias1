@@ -16,7 +16,9 @@ struct Link {
     Link(string nombrePlataforma, string linkAlbum, string linkCancion)
         : nombrePlataforma(nombrePlataforma), linkAlbum(linkAlbum), linkCancion(linkCancion) {}
 
-    
+    Link()
+        : nombrePlataforma(""), linkAlbum(""), linkCancion("") {}
+
     string toCSV(const string& clave)  {
         string result = formatearCSV(clave) + ";" 
 			+ formatearCSV(nombrePlataforma) + ";" 

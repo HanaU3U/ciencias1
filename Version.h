@@ -26,7 +26,12 @@ struct Version {
         : tituloVersion(tituloVersion), tipoVersion(tipoVersion), artistaPrincipal(artistaPrincipal),
           ciudadGrabacion(ciudadGrabacion), paisGrabacion(paisGrabacion),
           genero(genero), anioPublicacion(anioPublicacion) {}
-    
+
+	Version()
+        : tituloVersion(""), tipoVersion(""), artistaPrincipal(""),
+          ciudadGrabacion(""), paisGrabacion(""),
+          genero(""), anioPublicacion(0) {}
+		      
     string toCSV(const string& clave) {
         string result = formatearCSV(clave) + ";"
                       + formatearCSV(tituloVersion) + ";" 

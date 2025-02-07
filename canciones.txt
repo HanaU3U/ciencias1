@@ -1,12 +1,51 @@
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
-Caminos del Alma;3:45;Rock;JP (Guitarra);Spotify;https://spotify.com/track1
-Vuela Alto;4:10;Pop;Anita (Voz);YouTube;https://youtube.com/track2
-Ritmo Salvaje;5:02;Jazz;Charlie (Batería);Apple Music;https://apple.com/track3
+
+Thriller;Wanna Be Startin' Somethin';6:02;1;Michael Jackson;Michael Jackson;Michael Jackson;California;Estados Unidos;1982;R&B
+Thriller;Baby Be Mine;4:20;1;Rod Temperton;Rod Temperton;Michael Jackson;Nusau;Bahamas;1982;Pop
+Thriller;The Girl Is Mine;3:41;1;Michael Jackson;Michael Jackson;Michael Jackson;Londres;Reino Unido;1982;Pop
+Thriller;Thriller;5:57;1;Rod Temperton;Rod Temperton;Michael Jackson;California;Estados Unidos;1982;Funk
+Thriller;Beat It;4:17;1;Michael Jackson;Michael Jackson;Michael Jackson;Londres;Reino Unido;1982;Pop Rock
+Back in Black;Hells Bells;5:12;6;Angus Young, Malcolm Young, Brian Johnson;Angus Young, Malcolm Young, Brian Johnson;AC/DC;California;Estados Unidos;1980;Hard Rock
+Back in Black;Shoot to Thrill;5:17;6;Angus Young, Malcolm Young, Brian Johnson;Angus Young, Malcolm Young, Brian Johnson;AC/DC;Londres;Reino Unido;1980;Hard Rock
+Back in Black;What Do You Do for Money Honey;3:35;6;Angus Young, Malcolm Young, Brian Johnson;Angus Young, Malcolm Young, Brian Johnson;AC/DC;California;Estados Unidos;1980;Hard Rock
+Back in Black;Back in Black;4:15;6;Angus Young, Malcolm Young, Brian Johnson;Angus Young, Malcolm Young, Brian Johnson;AC/DC;California;Estados Unidos;1980;Hard Rock
+Back in Black;You Shook Me All Night Long;3:30;6;Angus Young, Malcolm Young, Brian Johnson;Angus Young, Malcolm Young, Brian Johnson;AC/DC;California;Estados Unidos;1980;Hard Rock
+The Dark Side of the Moon;Speak to Me;1:30;5;Nick Mason;Nick Mason;Pink Floyd;California;Estados Unidos;1973;Progressive Rock
+The Dark Side of the Moon;Breathe;4:14;5;Roger Waters, David Gilmour;Roger Waters, David Gilmour;Pink Floyd;California;Estados Unidos;1973;Progressive Rock
+The Dark Side of the Moon;On the Run;2:02;5;David Gilmour, Roger Waters;David Gilmour, Roger Waters;Pink Floyd;Londres;Reino Unido;1973;Electronic Rock
+The Dark Side of the Moon;Time;3:13;5;Roger Waters, David Gilmour, Nick Mason, Richard Wright;Roger Waters, David Gilmour, Nick Mason, Richard Wright;Pink Floyd;California;Estados Unidos;1973;Progressive Rock
+The Dark Side of the Moon;Money;3:38;5;Roger Waters;Roger Waters;Pink Floyd;California;Estados Unidos;1973;Progressive Rock
+Rumours;Second Hand News;2:43;6;Lindsey Buckingham;Lindsey Buckingham;Fleetwood Mac;California;Estados Unidos;1977;Soft Rock
+Rumours;Dreams;4:14;6;Stevie Nicks;Stevie Nicks;Fleetwood Mac;California;Estados Unidos;1977;Soft Rock
+Rumours;Never Going Back Again;2:02;6;Lindsey Buckingham;Lindsey Buckingham;Fleetwood Mac;Londres;Reino Unido;1977;Folk Rock
+Rumours;Don't Stop;3:13;6;Christine McVie;Christine McVie;Fleetwood Mac;Londres;Reino Unido;1977;Pop Rock
+Rumours;Go Your Own Way;3:38;6;Lindsey Buckingham;Lindsey Buckingham;Fleetwood Mac;Londres;Reino Unido;1977;Pop Rock
+Abbey Road;Come Together;4:20;1;John Lennon, Paul McCartney;John Lennon, Paul McCartney;The Beatles;Londres;Reino Unido;1969;Blues Rock
+Abbey Road;Something;3:03;1;George Harrison;George Harrison;The Beatles;Londres;Reino Unido;1969;Rock
+Abbey Road;Maxwell's Silver Hammer;3:27;1;Paul McCartney;Paul McCartney;The Beatles;California;Estados Unidos;1969;Pop Rock
+Abbey Road;Oh! Darling;3:26;1;Paul McCartney;Paul McCartney;The Beatles;California;Estados Unidos;1969;Blues Rock
+Abbey Road;Octopus's Garden;2:51;1;Ringo Starr;Ringo Starr;The Beatles;California;Estados Unidos;1969;Pop Rock
+Hotel California;Hotel California;6:30;4;Don Felder, Don Henley, Glenn Frey;Don Felder, Don Henley, Glenn Frey;Eagles;California;Estados Unidos;1976;Soft Rock
+Hotel California;New Kid in Town;5:04;4;Don Henley, Glenn Frey, J.D. Souther;Don Henley, Glenn Frey, J.D. Souther;Eagles;California;Estados Unidos;1976;Soft Rock
+Hotel California;Life in the Fast Lane;4:46;4;Joe Walsh, Don Henley, Glenn Frey;Joe Walsh, Don Henley, Glenn Frey;Eagles;California;Estados Unidos;1976;Hard Rock
+Hotel California;Wasted Time;4:55;4;Don Henley, Glenn Frey;Don Henley, Glenn Frey;Eagles;California;Estados Unidos;1976;Rock Ballad
+Hotel California;Victim of Love;4:11;4;Don Felder, Don Henley, Glenn Frey, J.D. Souther;Don Felder, Don Henley, Glenn Frey, J.D. Souther;Eagles;California;Estados Unidos;1976;Hard Rock
+Born in the U.S.A.;Born in the U.S.A.;4:39;5;Bruce Springsteen;Bruce Springsteen;Bruce Springsteen;California;Estados Unidos;1984;Rock
+Born in the U.S.A.;Cover Me;3:27;5;Bruce Springsteen;Bruce Springsteen;Bruce Springsteen;California;Estados Unidos;1984;Rock
+Born in the U.S.A.;Darlington County;4:48;5;Bruce Springsteen;Bruce Springsteen;Bruce Springsteen;California;Estados Unidos;1984;Rock
+Born in the U.S.A.;Working on the Highway;3:11;5;Bruce Springsteen;Bruce Springsteen;Bruce Springsteen;California;Estados Unidos;1984;Rockabally
+Born in the U.S.A.;I'm on Fire;2:36;5;Bruce Springsteen;Bruce Springsteen;Bruce Springsteen;California;Estados Unidos;1984;Soft Rock
+Nevermind;Smells Like Teen Spirit;5:01;3;Kurt Cobain, Krist Novoselic, Dave Grohl;Kurt Cobain, Krist Novoselic, Dave Grohl;Nirvana;California;Estados Unidos;1991;Grunge
+Nevermind;In Bloom;4:15;3;Kurt Cobain;Kurt Cobain;Nirvana;California;Estados Unidos;1991;Grunge
+Nevermind;Come as You Are;3:39;3;Kurt Cobain;Kurt Cobain;Nirvana;California;Estados Unidos;1991;Grunge
+Nevermind;Lithium;4:17;3;Kurt Cobain;Kurt Cobain;Nirvana;Londres;Reino Unido;1991;Grunge
+Nevermind;Polly;2:57;3;Kurt Cobain;Kurt Cobain;Nirvana;Londres;Reino Unido;1991;Acoustic Rock
+Led Zeppelin IV;Black Dog;4:55;4;Jimmy Page, Robert Plant, John Paul Jones;Jimmy Page, Robert Plant, John Paul Jones;Led Zeppelin;Londres;Reino Unido;1971;Hard Rock
+Led Zeppelin IV;Rock and Roll;3:40;4;Jimmy Page, Robert Plant, John Paul Jones, John Bonham;Jimmy Page, Robert Plant, John Paul Jones, John Bonham;Led Zeppelin;Londres;Reino Unido;1971;Hard Rock
+Led Zeppelin IV;The Battle of Evermore;5:51;4;Jimmy Page, Robert Plant;Jimmy Page, Robert Plant;Led Zeppelin;Londres;Reino Unido;1971;Folk Rock
+Led Zeppelin IV;Stairway to Heaven;8:02;4;Jimmy Page, Robert Plant;Jimmy Page, Robert Plant;Led Zeppelin;California;Estados Unidos;1971;Progressive Rock
+Led Zeppelin IV;Misty Mountain Hop;4:38;4;Jimmy Page, Robert Plant, John Paul Jones;Jimmy Page, Robert Plant, John Paul Jones;Led Zeppelin;Londres;Reino Unido;1971;Hard Rock
+21;Rolling in the Deep;3:48;1;Adele, Paul Epworth;Adele, Paul Epworth;Adele;Londres;Reino Unido;2010;Soul
+21;Rumour Has It;3:43;1;Adele, Ryan Tedder;Adele, Ryan Tedder;Adele;Londres;Reino Unido;2010;Blues Rock
+21;Turning Tables;4:10;1;Adele, Ryan Tedder;Adele, Ryan Tedder;Adele;Londres;Reino Unido;2010;Pop Ballad
+21;Don't You Remember;4:03;1;Adele, Dan Wilson;Adele, Dan Wilson;Adele;Londres;Reino Unido;2010;Pop Ballad
+21;Someone Like You;4:45;1;Adele, Dan Wilson;Adele, Dan Wilson;Adele;Londres;Reino Unido;2011;Pop Ballad
