@@ -164,7 +164,7 @@ void ArbolAVL<T>::inOrderIterativo(Cola<T>& cola) {
             actual = actual->izquierda;
         }
         actual = pila.top(); pila.pop();
-        cola.push(actual->dato);  // ?? Insertar el dato en la cola
+        cola.push(actual->dato);  //Insertar el dato en la cola
         actual = actual->derecha;
     }
 }

@@ -3,6 +3,7 @@
 #include <string>
 #include "Link.h"
 #include "FormatearCSV.h"
+#include "Cancion.h"
 
 #ifndef ALBUM_H
 #define ALBUM_H
@@ -18,7 +19,7 @@ struct Album {
     string fotografia;
     string editora;
     string estudioGrabacion;
-    
+    Album* sigArtista;
     Album* sigEditora;
     Album* sigFotografia;
     Album* sigEstudio;

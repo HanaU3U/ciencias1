@@ -39,7 +39,7 @@ class Lista{
 		    };
 		
 		    iterator begin() const  { return iterator(cab); }
-		    iterator end() const  { return iterator(nullptr); }
+		    iterator end() const  { return iterator(NULL); }
 
 };
 

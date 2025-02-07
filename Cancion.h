@@ -1,9 +1,8 @@
 #include <iostream>
 #include "Artista.h"
-#include "Link.h"
 #include "Lista.h"
 #include "FormatearCSV.h"
-#include "Album.h"
+#include "Version.h"
 
 #ifndef CANCION_H
 #define CANCION_H
@@ -25,7 +24,7 @@ struct Cancion {
 	Cancion* sigTipoVersion;
 	Cancion* sigPlataforma;
 	Cancion* sigPais;
-    Lista<Link> listadoLinks;
+	
     Lista<Artista> listadoArtistas;
     Lista<Version> listadoVersion;
     
@@ -40,8 +39,8 @@ struct Cancion {
           sigGenero(NULL), sigCompositor(NULL), sigTipoVersion(NULL), 
           sigPlataforma(NULL), sigPais(NULL) {}
     
-    string toCSV(const Album& alb) {
-        string result = formatearCSV(alb.titulo) + ";"  // Campo "Album"
+    string toCSV(const string& clave) {
+        string result = formatearCSV(clave) + ";"  // Campo "Album"
                       + formatearCSV(nombreCancion) + ";"  // Campo "Nombre"
                       + formatearCSV(duracion) + ";"  // Campo "Duracion"
                       + formatearCSV(genero) + ";"  // Campo "Genero"

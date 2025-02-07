@@ -4,7 +4,6 @@
 #include "Link.h"
 #include "Artista.h"
 #include "FormatearCSV.h"
-#include "Cancion.h"
 
 #ifndef VERSION_H
 #define VERSION_H
@@ -28,11 +27,10 @@ struct Version {
           ciudadGrabacion(ciudadGrabacion), paisGrabacion(paisGrabacion),
           genero(genero), anioPublicacion(anioPublicacion) {}
     
-    string toCSV(const Cancion& can) {
-        string result = formatearCSV(can.nombreCancion) + ";"
+    string toCSV(const string& clave) {
+        string result = formatearCSV(clave) + ";"
                       + formatearCSV(tituloVersion) + ";" 
                       + formatearCSV(artistaPrincipal) + ";"  
-                      + formatearCSV(nombreArtistico) + ";" 
                       + formatearCSV(ciudadGrabacion) + ";"  
                       + formatearCSV(paisGrabacion) + ";"  
                       + formatearCSV(genero) + ";"  

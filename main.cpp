@@ -9,23 +9,12 @@
 #include "Lista.h"
 #include "Cabecera.h"
 #include "ArbolAVL.h"
+#include "CharStrToNumber.h"
+#include "MapCustom.h"
 
 
 using namespace std;
-
-int charToNumber(char c) {
-    return c - '0';
-}
-
-int stringToNumber(string palabra){
-	int total=0;
-	for(char i: palabra){
-		cout<<i<<" "<<charToNumber(i)<<endl;
-		total+=charToNumber(i);
-	}
-	return total;
-}
-
+/*
 // Función para cargar datos desde un archivo
 Lista<string> cargarDatos(const string& nombreArchivo) {
     Lista<string> datos;
@@ -42,7 +31,7 @@ Lista<string> cargarDatos(const string& nombreArchivo) {
     archivo.close();
     return datos;
 }
-
+*/
 // Función para guardar datos en un archivo
 void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     ofstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
@@ -57,16 +46,16 @@ void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     archivo.close();
 }
 
-Lista<Cabecera> editora;
-Lista<Cabecera> fotografia;
-Lista<Cabecera> estudio;
-Lista<Cabecera> pais_album;
-Lista<Cabecera> pais_can;
-Lista<Cabecera> genero;
-Lista<Cabecera> compositor;
-Lista<Cabecera> tipo_version;
-Lista<Cabecera> plataforma;
-Lista<Cabecera> instrumento;
+Lista<Cabecera<Album>> editora;
+Lista<Cabecera<Album>> fotografia;
+Lista<Cabecera<Album>> estudio;
+Lista<Cabecera<Album>> pais_album;
+Lista<Cabecera<Cancion>> pais_can;
+Lista<Cabecera<Cancion>> genero;
+Lista<Cabecera<Cancion>> compositor;
+Lista<Cabecera<Cancion>> tipo_version;
+Lista<Cabecera<Cancion>> plataforma;
+Lista<Cabecera<Artista>> instrumento;
 
 /*
 int main() {
@@ -113,7 +102,47 @@ int main() {
 }
 */
 
+int main() {
+    // Crear un mapa de string a int
+    MapCustom<int> mapa;
 
+    // Insertar valores en el mapa
+    mapa.insertar("uno", 1);
+    mapa.insertar("dos", 2);
+    mapa.insertar("tres", 3);
+    mapa.insertar("cuatro", 4);
+
+    // Imprimir los valores almacenados
+    cout << "Contenido del mapa:" << endl;
+    mapa.imprimir();
+
+    // Buscar un valor
+    string clave = "tres";
+    if (mapa.existe(clave)) {
+        cout << "El valor asociado a '" << clave << "' es: " << mapa.obtener(clave) << endl;
+    } else {
+        cout << "La clave '" << clave << "' no existe en el mapa." << endl;
+    }
+
+    // Eliminar una clave
+    cout << "Eliminando clave 'dos'..." << endl;
+    mapa.eliminar("dos");
+
+    // Verificar si la clave fue eliminada
+    if (!mapa.existe("dos")) {
+        cout << "Clave 'dos' eliminada correctamente." << endl;
+    }
+
+    // Imprimir el mapa actualizado
+    cout << "Mapa después de eliminar 'dos':" << endl;
+    mapa.imprimir();
+
+    // Mostrar el tamaño del mapa
+    cout << "Tamaño actual del mapa: " << mapa.tamanio() << endl;
+
+    return 0;
+}
+/*
 int main() {
 	
 	Cola<Artista> cola;
@@ -131,7 +160,7 @@ int main() {
     Lista<string> datosVersiones = cargarDatos("versiones.txt");
     Lista<string> datosLinks = cargarDatos("links.txt");
 
-    // Aquí puedes procesar los datos cargados y convertirlos en estructuras
+    
 
     // Creación de artistas
     Artista artista1 = {"Juan Pérez", "JP", "México", "Guitarra"};
@@ -229,4 +258,4 @@ int main() {
 
     
     
-}
+}*/
