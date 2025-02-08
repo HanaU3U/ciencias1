@@ -9,13 +9,24 @@
 #include "Artista.h"
 #include "Version.h"
 #include "Lista.h"
-#include "Cabecera.h"
+#include "ListaCab.h"
 #include "ArbolAVL.h"
 #include "CharStrToNumber.h"
 #include "MapCustom.h"
 
 
 using namespace std;
+
+ListaCab<Album> listaEditora;
+ListaCab<Album> fotografia;
+ListaCab<Album> estudio;
+ListaCab<Album> pais_album;
+ListaCab<Cancion> pais_can;
+ListaCab<Cancion> genero;
+ListaCab<Cancion> compositor;
+ListaCab<Cancion> tipo_version;
+ListaCab<Cancion> plataforma;
+ListaCab<Cancion> instrumento;
 
 
 Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string& archivoCanciones) {
@@ -47,6 +58,7 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
         getline(ss, estudioGrabacion, ';');
 
         Album nuevoAlbum(titulo, artista, paisGrabacion, anio, fotografo, disenadorPortada, discografica, estudioGrabacion);
+        
         albumes.insert(nuevoAlbum);
     }
     archivoAlbums.close();
@@ -236,62 +248,6 @@ void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     archivo.close();
 }
 
-Lista<Cabecera<Album>> editora;
-Lista<Cabecera<Album>> fotografia;
-Lista<Cabecera<Album>> estudio;
-Lista<Cabecera<Album>> pais_album;
-Lista<Cabecera<Cancion>> pais_can;
-Lista<Cabecera<Cancion>> genero;
-Lista<Cabecera<Cancion>> compositor;
-Lista<Cabecera<Cancion>> tipo_version;
-Lista<Cabecera<Cancion>> plataforma;
-Lista<Cabecera<Artista>> instrumento;
-
-/*
-int main() {
-    ArbolAVL<int> arbol;
-    Cola<int> cola;
-    
-    // Insertar elementos en el árbol
-    arbol.insertar(10, 10);
-    arbol.insertar(20, 20);
-    arbol.insertar(30, 30);
-    arbol.insertar(40, 40);
-    arbol.insertar(50, 50);
-    arbol.insertar(25, 25);
-
-    // Imprimir recorrido In-Order
-    cout << "Recorrido In-Order: ";
-    arbol.inOrderIterativo(cola);
-    while (!cola.empty()) {
-        cout << cola.front() << " ";
-        cola.pop();
-    }
-    cout << endl;
-
-    // Imprimir recorrido Pre-Order
-    cout << "Recorrido Pre-Order: ";
-    arbol.preOrderIterativo(cola);
-    while (!cola.empty()) {
-        cout << cola.front() << " ";
-        cola.pop();
-    }
-    cout << endl;
-    
-    // Eliminar un nodo
-    arbol.eliminar(30);
-    cout << "Recorrido In-Order tras eliminar 30: ";
-    arbol.inOrderIterativo(cola);
-    while (!cola.empty()) {
-        cout << cola.front() << " ";
-        cola.pop();
-    }
-    cout << endl;
-
-    return 0;
-}
-*/
-
 
 int main() {
 	
@@ -322,8 +278,6 @@ int main() {
         cout << endl;
     }
 
-    
-    
     return 0;
     /*
 
@@ -424,3 +378,50 @@ int main() {
     
     
 }
+
+
+/*
+int main() {
+    ArbolAVL<int> arbol;
+    Cola<int> cola;
+    
+    // Insertar elementos en el árbol
+    arbol.insertar(10, 10);
+    arbol.insertar(20, 20);
+    arbol.insertar(30, 30);
+    arbol.insertar(40, 40);
+    arbol.insertar(50, 50);
+    arbol.insertar(25, 25);
+
+    // Imprimir recorrido In-Order
+    cout << "Recorrido In-Order: ";
+    arbol.inOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    cout << endl;
+
+    // Imprimir recorrido Pre-Order
+    cout << "Recorrido Pre-Order: ";
+    arbol.preOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    cout << endl;
+    
+    // Eliminar un nodo
+    arbol.eliminar(30);
+    cout << "Recorrido In-Order tras eliminar 30: ";
+    arbol.inOrderIterativo(cola);
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
+*/
+
