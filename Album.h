@@ -25,6 +25,7 @@ struct Album {
     Album* sigEstudio;
     Album* sigPais;
     Lista<Cancion> listadoCanciones;
+    Lista<Link> listadoLink;
     
     Album(string titulo, string nombreArtistico, string paisGrabacion, int anioPublicacion,
           string coverArt, string fotografia, string editora, string estudioGrabacion)

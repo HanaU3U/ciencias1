@@ -1,0 +1,57 @@
+
+Wanna Be Startin' Somethin';Spotify;https://open.spotify.com/intl-es/track/1hu2s7qkm5bo03eODpRQO3
+Wanna Be Startin' Somethin';Youtube;https://www.youtube.com/watch?v=1XMvPTFzgVU
+Wanna Be Startin' Somethin';Deezer;https://en.wikipedia.org/wiki/Thriller_(Michael_Jackson_album)
+Baby Be Mine;Deezer;https://en.wikipedia.org/wiki/Thriller_(Michael_Jackson_album)
+The Girl Is Mine;Spotify;https://open.spotify.com/intl-es/track/4IT6vDuKprKl6jyVndlY8V
+The Girl Is Mine;Youtube;https://www.youtube.com/watch?v=8GB9BULxZ8c
+Thriller;Deezer;https://en.wikipedia.org/wiki/Thriller_(Michael_Jackson_album)
+Beat It;Deezer;https://en.wikipedia.org/wiki/Thriller_(Michael_Jackson_album)
+Hells Bells;Spotify;https://open.spotify.com/intl-es/track/2P884dqfjksDMSzUZksfrS
+Hells Bells;Youtube;https://www.youtube.com/watch?v=etAIpkdhU9Q
+What Do You Do for Money Honey;Spotify;https://en.wikipedia.org/wiki/Back_in_Black
+Back in Black;Spotify;https://open.spotify.com/intl-es/track/08mG3Y1vljYA6bvDt4Wqkj
+Back in Black;Youtube;https://www.youtube.com/watch?v=pAgnJDJN4VA
+Back in Black;Deezer;https://en.wikipedia.org/wiki/Back_in_Black
+On the Run;Youtube;https://www.youtube.com/watch?v=G0wOOlwXLgA
+On the Run;Spotify;https://open.spotify.com/intl-es/track/73OIUNKRi2y24Cu9cOLrzM
+Time;Youtube;https://www.youtube.com/watch?v=Qr0-7Ds79zo
+Time;Spotify;https://open.spotify.com/intl-es/track/3TO7bbrUKrOSPGRTB5MeCz
+Time;Deezer;https://en.wikipedia.org/wiki/The_Dark_Side_of_the_Moon
+Never Going Back Again;Youtube;https://www.youtube.com/watch?v=0i3ZfrVY9iU
+Never Going Back Again;Spotify;https://open.spotify.com/intl-es/track/19Shlms2uTnOjIUg50TXzd
+Never Going Back Again;Deezer;https://en.wikipedia.org/wiki/Rumours_(album)
+Maxwell's Silver Hammer;Youtube;https://www.youtube.com/watch?v=mJag19WoAe0
+Maxwell's Silver Hammer;Deezer;https://en.wikipedia.org/wiki/Abbey_Road
+Oh! Darling;Spotify;https://en.wikipedia.org/wiki/Abbey_Road
+Octopus's Garden;Youtube;https://www.youtube.com/watch?v=A7coEcXjd7Q
+Octopus's Garden;Spotify;https://open.spotify.com/intl-es/track/0suLngfo7rJoetk7Ub6N8l
+Octopus's Garden;Deezer;https://en.wikipedia.org/wiki/Abbey_Road
+Hotel California;Deezer;https://en.wikipedia.org/wiki/Hotel_California_(Eagles_album)
+Born in the U.S.A.;Spotify;https://open.spotify.com/intl-es/track/0dOg1ySSI7NkpAe89Zo0b9
+Cover Me;Deezer;https://en.wikipedia.org/wiki/Born_in_the_U.S.A.
+Darlington County;Deezer;https://en.wikipedia.org/wiki/Born_in_the_U.S.A.
+Working on the Highway;Spotify;https://en.wikipedia.org/wiki/Born_in_the_U.S.A.
+I'm on Fire;Deezer;https://en.wikipedia.org/wiki/Born_in_the_U.S.A.
+Smells Like Teen Spirit;Youtube;https://www.youtube.com/watch?v=hTWKbfoikeg
+Smells Like Teen Spirit;Spotify;https://open.spotify.com/intl-es/track/4CeeEOM32jQcH3eN9Q2dGj
+Smells Like Teen Spirit;Deezer;https://en.wikipedia.org/wiki/Nevermind
+In Bloom;Youtube;https://www.youtube.com/watch?v=PbgKEjNBHqM
+In Bloom;Deezer;https://en.wikipedia.org/wiki/Nevermind
+Come as You Are;Spotify;https://open.spotify.com/intl-es/track/2RsAajgo0g7bMCHxwH3Sk0
+Come as You Are;Youtube;https://www.youtube.com/watch?v=vabnZ9-ex7o
+Come as You Are;Deezer;https://en.wikipedia.org/wiki/Nevermind
+Polly;Deezer;https://en.wikipedia.org/wiki/Nevermind
+Black Dog;Spotify;https://en.wikipedia.org/wiki/Led_Zeppelin_IV
+Rock and Roll;Spotify;https://open.spotify.com/intl-es/track/4PRGxHpCpF2yoOHYKQIEwD
+Rock and Roll;Youtube;https://www.youtube.com/watch?v=D2lSwosw9xY
+Rock and Roll;Deezer;https://en.wikipedia.org/wiki/Led_Zeppelin_IV
+Stairway to Heaven;Youtube;https://www.youtube.com/watch?v=QkF3oxziUI4
+Stairway to Heaven;Deezer;https://en.wikipedia.org/wiki/Led_Zeppelin_IV
+Misty Mountain Hop;Spotify;https://en.wikipedia.org/wiki/Led_Zeppelin_IV
+Rolling in the Deep;Spotify;https://open.spotify.com/intl-es/track/1c8gk2PeTE04A1pIDH9YMk
+Rolling in the Deep;Deezer;https://en.wikipedia.org/wiki/21_(Adele_album)
+Rumour Has It;Youtube;https://www.youtube.com/watch?v=A8IRqCJVkOo
+Rumour Has It;Deezer;https://en.wikipedia.org/wiki/21_(Adele_album)
+Turning Tables;Spotify;https://en.wikipedia.org/wiki/21_(Adele_album)
+Someone Like You;Spotify;https://en.wikipedia.org/wiki/21_(Adele_album)

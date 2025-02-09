@@ -10,22 +10,25 @@ using namespace std;
 
 struct Link {
     string nombrePlataforma;
-    string linkAlbum;
-    string linkCancion;
+    string link;
     
-    Link(string nombrePlataforma, string linkAlbum, string linkCancion)
-        : nombrePlataforma(nombrePlataforma), linkAlbum(linkAlbum), linkCancion(linkCancion) {}
+    Link(string nombrePlataforma, string link)
+        : nombrePlataforma(nombrePlataforma), link(link) {}
 
     Link()
-        : nombrePlataforma(""), linkAlbum(""), linkCancion("") {}
+        : nombrePlataforma(""), link("") {}
 
     string toCSV(const string& clave)  {
         string result = formatearCSV(clave) + ";" 
 			+ formatearCSV(nombrePlataforma) + ";" 
-			+ formatearCSV(linkAlbum)+ ";"
-			+ formatearCSV(linkCancion);
+			+ formatearCSV(link);
 			
 		return result;
+    }
+    
+    friend ostream& operator<<(ostream& os, const Link& link) {
+        os << "Link: " << link.link;
+        return os;
     }
 };
 

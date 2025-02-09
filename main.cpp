@@ -11,7 +11,7 @@
 #include "Lista.h"
 #include "ListaCabAlbum.h"
 #include "ListaCabCancion.h"
-#include "Cabecera.h"
+#include "ListaCabVersion.h"
 #include "ArbolAVL.h"
 #include "CharStrToNumber.h"
 
@@ -28,6 +28,8 @@ ListaCabCancion  cabGenero;
 ListaCabCancion  cabCompositor;
 ListaCabCancion  cabPais;
 
+
+ListaCabVersion  cabTipoVersion;
 
 Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string& archivoCanciones) {
     Lista<Album> albumes;
@@ -109,8 +111,8 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
             if (album.titulo == tituloAlbum) {
                 album.listadoCanciones.insert(*cancion);
                 cabGenero.insertarGeneroCancion(cancion);
-                //cabCompositor.insertarCompositorCancion(cancion);
-                //cabPais.insertarPaisCancion(cancion);
+                cabCompositor.insertarCompositorCancion(cancion);
+                cabPais.insertarPaisCancion(cancion);
                 
                 break;
             }
@@ -122,7 +124,7 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
 }
 
 
-void cargarLinks(Lista<Album>& albumes, const string& archivoLinks) {
+void cargarLinksCancion(Lista<Album>& albumes, const string& archivoLinks) {
     ifstream archivo(archivoLinks);
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo de links: " << archivoLinks << endl;
@@ -134,20 +136,20 @@ void cargarLinks(Lista<Album>& albumes, const string& archivoLinks) {
 
     while (getline(archivo, linea)) {
         stringstream ss(linea);
-        string tituloCancion, nombrePlataforma, linkAlbum, linkCancion;
+        string tituloCancion, nombrePlataforma, link;
 
         getline(ss, tituloCancion, ';');
         getline(ss, nombrePlataforma, ';');
-        getline(ss, linkAlbum, ';');
-        getline(ss, linkCancion, ';');
+        getline(ss, link);
 
-        Link nuevoLink(nombrePlataforma, linkAlbum, linkCancion);
+        Link nuevoLink(nombrePlataforma, link);
 
         // Buscar la canción correspondiente y agregar el link
         for (auto& album : albumes) {
             for (auto& cancion : album.listadoCanciones) {
                 if (cancion.nombreCancion == tituloCancion) {
                     cancion.listadoLink.insert(nuevoLink);
+                    cancion.cantPlataformas+=1;
                     break;
                 }
             }
@@ -155,7 +157,39 @@ void cargarLinks(Lista<Album>& albumes, const string& archivoLinks) {
     }
     archivo.close();
 }
+/*
+void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
+    ifstream archivo(archivoLinks);
+    if (!archivo.is_open()) {
+        cerr << "Error al abrir el archivo de links: " << archivoLinks << endl;
+        return;
+    }
 
+    string linea;
+    getline(archivo, linea); // Leer y descartar la primera línea (encabezado)
+
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string tituloAlbum, nombrePlataforma, link;
+
+        getline(ss, tituloAlbum, ';');
+        getline(ss, nombrePlataforma, ';');
+        getline(ss, link);
+
+        Link nuevoLink(nombrePlataforma, link);
+
+        // Buscar la canción correspondiente y agregar el link
+        for (auto& album : albumes) {
+            if (album.titulo == tituloAlbum) {
+                album.listadoLink.insert(nuevoLink);
+                break;
+            }
+            
+        }
+    }
+    archivo.close();
+}
+*/
 void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
     ifstream archivo(archivoVersiones);
     if (!archivo.is_open()) {
@@ -179,14 +213,16 @@ void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
         getline(ss, paisGrabacion, ';');
         getline(ss, genero, ';');
         ss >> anioPublicacion;
-
-        Version nuevaVersion(tituloVersion, tipoVersion, artistaPrincipal, ciudadGrabacion, paisGrabacion, genero, anioPublicacion);
-
+		
+		Version* version = new Version(tituloVersion, tipoVersion, artistaPrincipal, ciudadGrabacion, paisGrabacion, genero, anioPublicacion);
+            
         // Buscar la canción correspondiente y agregar la versión
         for (auto& album : albumes) {
             for (auto& cancion : album.listadoCanciones) {
                 if (cancion.nombreCancion == tituloCancion) {
-                    cancion.listadoVersion.insert(nuevaVersion);
+                    cancion.listadoVersion.insert(*version);
+                    cabTipoVersion.insertarTipoVersion(version);
+                    
                     break;
                 }
             }
@@ -236,9 +272,10 @@ void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
     archivo.close();
 }
 
-Lista<Album> cargarTodo(const string& archivoAlbumes, const string& archivoCanciones, const string& archivoLinks, const string& archivoVersiones, const string& archivoArtistas) {
+Lista<Album> cargarTodo(const string& archivoAlbumes, const string& archivoCanciones, const string& archivoLinksCan, const string& archivoLinksAl, const string& archivoVersiones, const string& archivoArtistas) {
     Lista<Album> albumes = cargarAlbumesYCanciones(archivoAlbumes, archivoCanciones);
-    cargarLinks(albumes, archivoLinks);
+    cargarLinksCancion(albumes, archivoLinksCan);
+    //cargarLinksAlbum(albumes, archivoLinksAl);
     cargarVersiones(albumes, archivoVersiones);
     cargarArtistas(albumes, archivoArtistas);
     return albumes;
@@ -264,37 +301,43 @@ int main() {
 	
 	Cola<Artista> cola;
 	
-    Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "links.txt", "versiones.txt", "artistas.txt");
+    Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "linksCancion.txt", "linksAlbum.txt", "versiones.txt", "artistas.txt");
 	
-    for (auto& album : albumes) {
-        cout << "Album: " << album.titulo << " (" << album.anioPublicacion << ")" << endl;
-       	
-        cout << "Artista: " << album.nombreArtistico << endl;
-        cout << "Canciones:" << endl;
-        
-        for (auto& cancion : album.listadoCanciones) {
-            cout << "  - " << cancion.nombreCancion << " (" << cancion.duracion << ")" << endl;
-            /*cout << "    Links:" << endl;
-            for (auto& link : cancion.listadoLink) {
-                cout << "      * " << link.nombrePlataforma << ": " << link.linkCancion << endl;
-            }
-            cout << "    Versiones:" << endl;
-            for (auto& version : cancion.listadoVersion) {
-                cout << "      * " << version.tituloVersion << " (" << version.tipoVersion << ")" << endl;
-            }
-            cout << "    Artistas:" << endl;
-            for (auto& artista : cancion.listadoArtistas) {
-                cout << "      - " << artista.nombreReal << " (" << artista.instrumento << ")" << endl;
-            }*/
+	Album album = albumes.get(0);
+    
+	cout << "Album: " << album.titulo << " (" << album.anioPublicacion << ")" << endl;
+    cout << "Artista: " << album.nombreArtistico << endl;
+    cout << "Canciones:" << endl;
+    
+    for (auto& cancion : album.listadoCanciones) {
+        cout << "  - " << cancion.nombreCancion << " (" << cancion.duracion << ")" << endl;
+        cout<<"cantidad Plataformas "<<cancion.cantPlataformas<<endl;
+        cout << "    Links:" << endl;
+        for (auto& link : cancion.listadoLink) {
+        	cout << "      * " << link.nombrePlataforma << ": " << link.link << endl;
         }
-        cout << endl;
-        
+        cout << "    Versiones:" << endl;
+        for (auto& version : cancion.listadoVersion) {
+            cout << "      * " << version.tituloVersion << " (" << version.tipoVersion << ")" << endl;
+        }
+        cout << "    Artistas:" << endl;
+        for (auto& artista : cancion.listadoArtistas) {
+            cout << "      - " << artista.nombreReal << " (" << artista.instrumento << ")" << endl;
+        }
     }
+    cout << endl;
+     
+    
+    
     cout<<"Albumes del mismo pais Estados Unidos"<<endl;
     cabPais_album.imprimirAlbumesPorPais("Estados Unidos");
     
     cout<<"Canciones del mismo genero Pop"<<endl;
     cabGenero.imprimirCancionesPorGenero("Folk Rock");
+    
+    cout<<"Versiones del mismo tipo Special Edition"<<endl;
+    cabTipoVersion.imprimirVersionesPortipoVer("Special Edition");
+    
     
     return 0;
 }

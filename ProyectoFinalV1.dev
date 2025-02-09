@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=16
+UnitCount=17
 
 [VersionInfo]
 Major=1
@@ -200,8 +200,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit17]
-FileName=MapaPersonalizado.h
+[Unit12]
+FileName=ParClaveValor.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -210,17 +210,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit18]
-FileName=Untitled2
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit12]
-FileName=ParClaveValor.h
+[Unit17]
+FileName=ListaCabVersion.h
 CompileCpp=1
 Folder=
 Compile=1

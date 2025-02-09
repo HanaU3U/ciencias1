@@ -1,0 +1,26 @@
+
+Thriller;Spotify;https://open.spotify.com/intl-es/album/2ANVost0y2y52ema1E9xAZ
+Thriller;Deezer;https://en.wikipedia.org/wiki/Thriller_(Michael_Jackson_album)
+Thriller;Youtube;https://www.youtube.com/watch?v=8KWf_-ofYgI&list=PLFAcddgaFN8zqIJrTakvM9qWnR7iIrXnj
+Back in Black;Spotify;https://open.spotify.com/intl-es/track/08mG3Y1vljYA6bvDt4Wqkj
+Back in Black;Deezer;https://en.wikipedia.org/wiki/Back_in_Black
+Back in Black;Youtube;https://www.youtube.com/playlist?list=OLAK5uy_l83XNDdw6yoNRNhqxzLgFthzDohguKu_A
+The Dark Side of the Moon;Spotify;https://open.spotify.com/intl-es/album/4LH4d3cOWNNsVw41Gqt2kv
+The Dark Side of the Moon;Deezer;https://en.wikipedia.org/wiki/The_Dark_Side_of_the_Moon
+Rumours;Youtube;https://www.youtube.com/watch?v=bLfcwDZ5GzQ&list=PL6ogdCG3tAWjN3nOVWjA6DCwYYKAMk5-f
+Abbey Road;Spotify;https://open.spotify.com/intl-es/album/0ETFjACtuP2ADo6LFhL6HN
+Abbey Road;Deezer;https://en.wikipedia.org/wiki/Abbey_Road
+Abbey Road;Youtube;https://www.youtube.com/watch?v=oolpPmuK2I8&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD
+Hotel California;Spotify;https://open.spotify.com/intl-es/album/2widuo17g5CEC66IbzveRu
+Hotel California;Deezer;https://en.wikipedia.org/wiki/Hotel_California_(Eagles_album)
+Hotel California;Youtube;https://www.youtube.com/playlist?list=OLAK5uy_mnd2DloksTdEPXJnhDVb63phT1d23xkBU
+Born in the U.S.A.;Deezer;https://en.wikipedia.org/wiki/Born_in_the_U.S.A.
+Born in the U.S.A.;Youtube;https://www.youtube.com/playlist?list=OLAK5uy_knulz6rBDTjgdDwskLxzD8g7gAdqRY4T0
+Nevermind;Spotify;https://open.spotify.com/intl-es/album/2UJcKiJxNryhL050F5Z1Fk
+Nevermind;Deezer;https://en.wikipedia.org/wiki/Nevermind
+Nevermind;Youtube;https://www.youtube.com/playlist?list=OLAK5uy_kEQJGO2SZ0k-vJ8b-F2AJLfKnw0cFydN
+Led Zeppelin IV;Spotify;https://open.spotify.com/intl-es/album/44Ig8dzqOkvkGDzaUof9lK
+Led Zeppelin IV;Deezer;https://en.wikipedia.org/wiki/Led_Zeppelin_IV
+Led Zeppelin IV;Youtube;https://www.youtube.com/playlist?list=OLAK5uy_miixGWs374VbB0oCVRHZ2JWssBydwz7V8
+21;Youtube;https://www.youtube.com/playlist?list=OLAK5uy_n1L0HX3yuyNtq_Xsu5Ofewh0xRvgQQRZc
+21;Spotify;https://open.spotify.com/intl-es/album/0Lg1uZvI312TPqxNWShFXL

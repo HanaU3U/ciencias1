@@ -19,6 +19,8 @@ struct Version {
     string genero;
     int anioPublicacion;
     
+	Version* sigTipoVersion;
+    
     Version(string tituloVersion, string tipoVersion, string artistaPrincipal, 
             string ciudadGrabacion, string paisGrabacion, string genero, int anioPublicacion)
         : tituloVersion(tituloVersion), tipoVersion(tipoVersion), artistaPrincipal(artistaPrincipal),
@@ -39,6 +41,11 @@ struct Version {
                       + formatearCSV(genero) + ";"  
                       + formatearCSV(to_string(anioPublicacion));  
         return result;
+    }
+    
+    friend ostream& operator<<(ostream& os, const Version& ver) {
+        os << "Nombre Version: " << ver.tituloVersion;
+        return os;
     }
 };
 
