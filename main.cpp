@@ -8,6 +8,7 @@
 #include "Album.h"
 #include "Artista.h"
 #include "Version.h"
+#include "Vista.h"
 #include "Lista.h"
 #include "ListaCabAlbum.h"
 #include "ListaCabCancion.h"
@@ -157,7 +158,7 @@ void cargarLinksCancion(Lista<Album>& albumes, const string& archivoLinks) {
     }
     archivo.close();
 }
-/*
+
 void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
     ifstream archivo(archivoLinks);
     if (!archivo.is_open()) {
@@ -189,7 +190,7 @@ void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
     }
     archivo.close();
 }
-*/
+
 void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
     ifstream archivo(archivoVersiones);
     if (!archivo.is_open()) {
@@ -275,7 +276,7 @@ void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
 Lista<Album> cargarTodo(const string& archivoAlbumes, const string& archivoCanciones, const string& archivoLinksCan, const string& archivoLinksAl, const string& archivoVersiones, const string& archivoArtistas) {
     Lista<Album> albumes = cargarAlbumesYCanciones(archivoAlbumes, archivoCanciones);
     cargarLinksCancion(albumes, archivoLinksCan);
-    //cargarLinksAlbum(albumes, archivoLinksAl);
+    cargarLinksAlbum(albumes, archivoLinksAl);
     cargarVersiones(albumes, archivoVersiones);
     cargarArtistas(albumes, archivoArtistas);
     return albumes;
@@ -303,6 +304,14 @@ int main() {
 	
     Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "linksCancion.txt", "linksAlbum.txt", "versiones.txt", "artistas.txt");
 	
+	menu(albumes);
+    
+    return 0;
+}
+
+
+	
+	/*
 	Album album = albumes.get(0);
     
 	cout << "Album: " << album.titulo << " (" << album.anioPublicacion << ")" << endl;
@@ -337,14 +346,7 @@ int main() {
     
     cout<<"Versiones del mismo tipo Special Edition"<<endl;
     cabTipoVersion.imprimirVersionesPortipoVer("Special Edition");
-    
-    
-    return 0;
-}
-
-
-	
-	
+    */
     
     /*
 
