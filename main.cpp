@@ -9,24 +9,24 @@
 #include "Artista.h"
 #include "Version.h"
 #include "Lista.h"
-#include "ListaCab.h"
+#include "ListaCabAlbum.h"
+#include "ListaCabCancion.h"
+#include "Cabecera.h"
 #include "ArbolAVL.h"
 #include "CharStrToNumber.h"
-#include "MapCustom.h"
 
 
 using namespace std;
 
-ListaCab<Album> listaEditora;
-ListaCab<Album> fotografia;
-ListaCab<Album> estudio;
-ListaCab<Album> pais_album;
-ListaCab<Cancion> pais_can;
-ListaCab<Cancion> genero;
-ListaCab<Cancion> compositor;
-ListaCab<Cancion> tipo_version;
-ListaCab<Cancion> plataforma;
-ListaCab<Cancion> instrumento;
+
+ListaCabAlbum  cabPais_album;
+ListaCabAlbum  cabEditora;
+ListaCabAlbum  cabFotografia;
+ListaCabAlbum  cabEstudio;
+
+ListaCabCancion  cabGenero;
+ListaCabCancion  cabCompositor;
+ListaCabCancion  cabPais;
 
 
 Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string& archivoCanciones) {
@@ -44,23 +44,28 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
 
     while (getline(archivoAlbums, lineaAlbum)) {
         stringstream ss(lineaAlbum);
-        string titulo, artista, paisGrabacion, fotografo, disenadorPortada, discografica, estudioGrabacion;
+        string titulo, artista, paisGrabacion, fotografo, editora, discografica, estudioGrabacion;
         int anio=0;
 
         getline(ss, titulo, ';');
         getline(ss, artista, ';');
         getline(ss, paisGrabacion, ';');
         ss >> anio;
-        ss.ignore(); // Ignorar el delimitador
+        ss.ignore(); 
         getline(ss, fotografo, ';');
-        getline(ss, disenadorPortada, ';');
+        getline(ss, editora, ';');
         getline(ss, discografica, ';');
         getline(ss, estudioGrabacion, ';');
-
-        Album nuevoAlbum(titulo, artista, paisGrabacion, anio, fotografo, disenadorPortada, discografica, estudioGrabacion);
         
-        albumes.insert(nuevoAlbum);
-    }
+        //Album nuevoAlbum(titulo, artista, paisGrabacion, anio, fotografo, editora, discografica, estudioGrabacion);
+        Album* album = new Album(titulo, artista, paisGrabacion, anio, fotografo, editora, discografica, estudioGrabacion);
+        
+	    albumes.insert(*album);
+	    cabPais_album.insertarPaisAlbum(album);
+	    cabEditora.insertarEditoraAlbum(album);
+	    cabFotografia.insertarFotografoAlbum(album);
+	    cabEstudio.insertarEstudioAlbum(album);
+	}
     archivoAlbums.close();
 
     // Leer el archivo de canciones y agregarlas a los álbumes correspondientes
@@ -82,6 +87,7 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
         getline(ss, tituloCancion, ';');
         getline(ss, duracion, ';');
         ss >> numArtistasPrincipales;
+        ss.ignore(); 
         getline(ss, compositorLetra, ';');
         getline(ss, compositorMusica, ';');
         getline(ss, arreglosMusicales, ';');
@@ -89,18 +95,23 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
         getline(ss, ciudadGrabacion, ';');
         getline(ss, paisGrabacion, ';');
         ss >> anioPublicacion;
+        ss.ignore(); 
         getline(ss, genero, ';');
         
 
-        Cancion nuevaCancion(nombreArtistico, tituloCancion, duracion, numArtistasPrincipales,
+		Cancion* cancion = new Cancion(nombreArtistico, tituloCancion, duracion, numArtistasPrincipales,
             compositorLetra, compositorMusica, arreglosMusicales,
             ciudadGrabacion, paisGrabacion, anioPublicacion, genero);
-
-
+            
+            
         // Buscar el álbum correspondiente y agregar la canción
         for (auto& album : albumes) {
             if (album.titulo == tituloAlbum) {
-                album.listadoCanciones.insert(nuevaCancion);
+                album.listadoCanciones.insert(*cancion);
+                cabGenero.insertarGeneroCancion(cancion);
+                //cabCompositor.insertarCompositorCancion(cancion);
+                //cabPais.insertarPaisCancion(cancion);
+                
                 break;
             }
         }
@@ -205,7 +216,7 @@ void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
 
         Artista nuevoArtista(nombreReal, nombreArtistico, pais, instrumento);
         
-        cout<<nombreArtistico<<endl;
+        //cout<<nombreArtistico<<endl;
 
         // Buscar la canción o versión correspondiente y agregar el artista
         for (auto& album : albumes) {
@@ -254,15 +265,16 @@ int main() {
 	Cola<Artista> cola;
 	
     Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "links.txt", "versiones.txt", "artistas.txt");
-
-    // Imprimir los álbumes, canciones, links y versiones
+	
     for (auto& album : albumes) {
         cout << "Album: " << album.titulo << " (" << album.anioPublicacion << ")" << endl;
+       	
         cout << "Artista: " << album.nombreArtistico << endl;
         cout << "Canciones:" << endl;
+        
         for (auto& cancion : album.listadoCanciones) {
             cout << "  - " << cancion.nombreCancion << " (" << cancion.duracion << ")" << endl;
-            cout << "    Links:" << endl;
+            /*cout << "    Links:" << endl;
             for (auto& link : cancion.listadoLink) {
                 cout << "      * " << link.nombrePlataforma << ": " << link.linkCancion << endl;
             }
@@ -273,12 +285,24 @@ int main() {
             cout << "    Artistas:" << endl;
             for (auto& artista : cancion.listadoArtistas) {
                 cout << "      - " << artista.nombreReal << " (" << artista.instrumento << ")" << endl;
-            }
+            }*/
         }
         cout << endl;
+        
     }
-
+    cout<<"Albumes del mismo pais Estados Unidos"<<endl;
+    cabPais_album.imprimirAlbumesPorPais("Estados Unidos");
+    
+    cout<<"Canciones del mismo genero Pop"<<endl;
+    cabGenero.imprimirCancionesPorGenero("Folk Rock");
+    
     return 0;
+}
+
+
+	
+	
+    
     /*
 
     // Creación de artistas
@@ -377,7 +401,7 @@ int main() {
 */
     
     
-}
+
 
 
 /*

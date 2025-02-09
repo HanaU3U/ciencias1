@@ -30,6 +30,7 @@ public:
     bool drop(int pos);
     bool edit(int pos, T datonuevo);
     T get(int pos);
+    T* getP(int pos);
     void print();
 
     struct iterator {
@@ -53,7 +54,7 @@ void Lista<T>::insert(T dato) {
         cab = aux;
     } else {
         nodo<T>* temp = cab;
-        while (temp->sig != nullptr) {
+        while (temp->sig != NULL) {
             temp = temp->sig;
         }
         temp->sig = aux;
@@ -147,7 +148,7 @@ template <class T>
 T Lista<T>::get(int pos)
 {
 	
-	if(pos==1){
+	if(pos==0){
 		return cab->info;
 	}
 	else{
@@ -156,6 +157,22 @@ T Lista<T>::get(int pos)
 			temp=temp->sig;
 		}
 		return temp->info;
+	}
+}
+
+template <class T>
+T* Lista<T>::getP(int pos)
+{
+	
+	if(pos==0){
+		return &cab->info;
+	}
+	else{
+		nodo <T> *temp=cab;
+		for(int i=1; i<pos; i++){
+			temp=temp->sig;
+		}
+		return &temp->info;
 	}
 }
 

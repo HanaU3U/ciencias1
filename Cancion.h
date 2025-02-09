@@ -64,6 +64,11 @@ struct Cancion {
                       + formatearCSV(to_string(anioPrimeraPublicacion));  // Campo "Año Publicación"
         return result;
     }
+    
+    friend ostream& operator<<(ostream& os, const Cancion& cancion) {
+        os << "Nombre Cancion: " << cancion.nombreCancion;
+        return os;
+    }
 };
 
 

@@ -47,6 +47,12 @@ struct Album {
                       + formatearCSV(estudioGrabacion);
         return result;
     }
+    
+    // Sobrecarga del operador << para imprimir un Album
+    friend ostream& operator<<(ostream& os, const Album& album) {
+        os << "Titulo: " << album.titulo;
+        return os;
+    }
 };
 
 #endif
