@@ -14,6 +14,7 @@
 #include "ListaCabCancion.h"
 #include "ListaCabVersion.h"
 #include "ArbolAVL.h"
+#include "ConsultasAvl.h"
 #include "CharStrToNumber.h"
 
 
@@ -282,7 +283,6 @@ Lista<Album> cargarTodo(const string& archivoAlbumes, const string& archivoCanci
     return albumes;
 }
 
-
 // Función para guardar datos en un archivo
 void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     ofstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
@@ -304,7 +304,42 @@ int main() {
 	
     Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "linksCancion.txt", "linksAlbum.txt", "versiones.txt", "artistas.txt");
 	
-	menu(albumes);
+	Cola<Album> cola_album;
+	
+    ArbolAVL<Album> arbol1;
+    
+    string studio="Abbey Road Studios";
+    int acumulador = 0;
+    Album* actual = cabEstudio.obtenerAlbumesPorCaract(studio);
+    while (actual != NULL) {
+        //cout << *actual << endl; // Usa la sobrecarga del operador <<
+        arbol1.insertar(*actual, actual->anioPublicacion);
+    	acumulador++;
+        actual = actual->sigEstudio;
+    }
+    
+    cout<<"Cantidad de albumes de "<<studio<<": "<<acumulador<<endl;
+    
+    
+    cout<<"Albumes"<<endl;
+    arbol1.postOrderIterativo(cola_album);
+    
+
+    // Imprimir la cola resultante
+    while (!cola_album.empty()) {
+        Album album = cola_album.front(); // Asume que tienes un método front()
+        cout << album << endl;
+        cola_album.pop(); // Asume que tienes un método pop()
+    }
+    
+    
+    
+    
+	
+	//ConsultasAvl c(albumes);
+	
+	//c.ejecutarConsulta(1);
+	//menu(albumes);
     
     return 0;
 }

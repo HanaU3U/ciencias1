@@ -51,7 +51,7 @@ struct Album {
     
     // Sobrecarga del operador << para imprimir un Album
     friend ostream& operator<<(ostream& os, const Album& album) {
-        os << "Titulo: " << album.titulo;
+        os << "Titulo: " << album.titulo<<"("<< album.anioPublicacion<< ")";
         return os;
     }
 };

@@ -26,9 +26,9 @@ struct Nodo {
 // Clase Árbol AVL
 template <class T>
 class ArbolAVL {
+	Nodo<T>* raiz;
 private:
-    Nodo<T>* raiz;
-
+    
     Nodo<T>* rotarDerecha(Nodo<T>* y);
     Nodo<T>* rotarIzquierda(Nodo<T>* x);
     Nodo<T>* NodoMinimo(Nodo<T>* nodo);
@@ -36,7 +36,7 @@ private:
     Nodo<T>* eliminarNodo(Nodo<T>* nodo, int valor);
 
 public:
-    ArbolAVL() { raiz = nullptr; }
+    ArbolAVL() { raiz = NULL; }
 
     int obtenerAltura(Nodo<T>* nodo);
     int obtenerBalance(Nodo<T>* nodo);
@@ -172,13 +172,49 @@ void ArbolAVL<T>::inOrderIterativo(Cola<T>& cola) {
 template <class T>
 void ArbolAVL<T>::preOrderIterativo(Cola<T>& cola) {
     if (!raiz) return;
+
     Pila<Nodo<T>*> pila;
     pila.push(raiz);
+
     while (!pila.empty()) {
-        Nodo<T>* nodo = pila.top(); pila.pop();
-        cola.push(nodo->clave);
+        Nodo<T>* nodo = pila.top();
+        pila.pop();
+
+        cola.push(nodo->dato); // Añadir el dato a la cola
+
         if (nodo->derecha) pila.push(nodo->derecha);
         if (nodo->izquierda) pila.push(nodo->izquierda);
+    }
+}
+
+
+template <class T>
+void ArbolAVL<T>::postOrderIterativo(Cola<T>& cola) {
+    if (!raiz) return;
+
+    Pila<Nodo<T>*> pila;
+    Nodo<T>* actual = raiz;
+    Nodo<T>* ultimoVisitado = nullptr;
+
+    while (!pila.empty() || actual) {
+        if (actual) {
+            // Ir lo más a la izquierda posible
+            pila.push(actual);
+            actual = actual->izquierda;
+        } else {
+            // Verificar el nodo en el tope de la pila
+            Nodo<T>* nodo = pila.top();
+
+            // Si el nodo tiene un hijo derecho y no lo hemos visitado
+            if (nodo->derecha && nodo->derecha != ultimoVisitado) {
+                actual = nodo->derecha; // Ir al subárbol derecho
+            } else {
+                // Procesar el nodo actual
+                cola.push(nodo->dato);
+                ultimoVisitado = nodo;
+                pila.pop(); // Eliminar el nodo de la pila
+            }
+        }
     }
 }
 
