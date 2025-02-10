@@ -2,13 +2,20 @@
 #define VISTA_H
 #include <iostream>
 #include <string>
+#include "Link.h"
 #include "Cancion.h"
 #include "Album.h"
 #include "Artista.h"
-#include "Lista.h"
-#include "Link.h"
 #include "Version.h"
-#include <cstdlib> 
+#include "Vista.h"
+#include "Lista.h"
+#include "ListaCabAlbum.h"
+#include "ListaCabCancion.h"
+#include "ListaCabVersion.h"
+#include "ArbolAVL.h"
+#include "ConsultasAvl.h"
+#include "CharStrToNumber.h"
+
 using namespace std;
 
 void limpiarConsola() {
@@ -170,8 +177,6 @@ void menuAl(Lista<Album>& general){
 }
 
 
-
-
 Lista<Version> menuVer(Lista<Version> versiones){
 	string tit;
     string tipo;
@@ -215,25 +220,14 @@ Lista<Version> menuVer(Lista<Version> versiones){
 
 
 
-void menuBusq(){
-	limpiarConsola();
-	cout << "Indique la categoria de busqueda:";
-	cout << endl << endl << "1. Ciudad";
-	cout << endl << endl << "2. Pais";
-	cout << endl << endl << "3. Genero";
-	cout << endl << endl << "4. Busqueda mas especifica";
-	
-}
-
-
-void menu(Lista<Album>& general){
+void menu(Lista<Album>& general, ListaCabAlbum cabPais_album, ListaCabAlbum  cabEditora, ListaCabAlbum  cabFotografia, ListaCabAlbum  cabEstudio, ListaCabCancion  cabGenero, ListaCabCancion  cabCompositor, ListaCabCancion  cabPais, ListaCabVersion  cabTipoVersion){
 	int opcion;
  while (true) { // Bucle infinito hasta que el usuario elija salir
  	limpiarConsola();
  	cout << general.empty() << endl;
  	cout << "Bienvenid@ a Sontify, no es plagio de Spotify, es una mejor version" << endl << "Por favor seleccione una opcion:";
 	cout << endl << endl << "1. Subir un almbum \n";
-	cout << endl << endl << "2. Buscar un almbum \n";
+	cout << endl << endl << "2. Realizar una busqueda \n";
 	cout << endl << endl << "3. Salir de Sontify \n";
  	cin >>  opcion;
         switch (opcion) {
@@ -241,15 +235,135 @@ void menu(Lista<Album>& general){
 				menuAl(general);	
                 break;  // Regresa al men√∫ sin necesidad de recursi√≥n
             case 2:
-            	return;  // Sale del m√©todo, deteniendo el bucle
-
+            	
+            	limpiarConsola();
+				int opcion=1;
+				cout << "Indique la categoria de busqueda:";
+				cout << endl << endl << "1. Numero total de albumes cuyos derechos pertenecen a una editora dada, clasific·ndolos aÒo de publicacion y nombre artistico";
+				cout << endl << endl << "2. Listado de las canciones y los albumes a los que pertenecen, que fueron grabados en un estudio dado, clasificandolos por aÒo y pais de grabacion.";
+				cout << endl << endl << "3. Listado de las canciones con su arreglista y sus autores de letra y musica cuya duraciÛn es mayor a un tiempo dado, clasificadas por ciudad de grabacion.";
+				cout << endl << endl << "4. Listado de las canciones de un genero dado que incluyan un instrumento dado. La lista debe incluir el nombre de la cancion, El nombre artistico y los datos del artista que interpreta el instrumento.";
+				cout << endl << endl << "5. Numero de canciones que tienen una cantidad de versiones >= a un numero dado, clasificadas por genero y aÒo de la primera grabacion.";
+				cout << endl << endl << "6. Listado de las versiones que pertenecen a un tipo de version dado y que est·n en mas de una plataforma. El listado debe incluir en tÌtulo de la version, el nombre del artista principal, el genero, el aÒo y pais de publicaciÛn, el nombre de la obra original y las plataformas en las que se encuentra.";
+				cout << endl << endl << "7. Dada una cancion, listado de los links de todas las plataformas donde se encuentra la original y todas las versiones de dicha cancion, el link debe estar acompaÒado del nombre de la plataforma.";
+				cout << endl << endl << "8. Obtener el numero de canciones y el numero de versiones que ha hecho cada encargado del Cover Art, Clasificando la informacion por genero y aÒo de publicacion, mostrando el nombre del encargado, el genero y el aÒo.";
+				cout << endl << endl << "9. Dado el nombre del encargado de fotografia y del estudio de grabacion, mostrar la lista de los albumes que han sido grabados en ese estudio y a cargo de ese encargado de fotografia, clasificados por pais de grabacion.";
+				cout << endl << endl << "10.Dado el nombre de un compositor de la letra, mostrar todas las canciones compuestas por esa persona incluyendo genero, aÒo, nombre de la cancion album al que pertenece y numero de plataformas en las que se encuentra.";
+				cout << endl << endl << "11.Volver al menu principal.";
+				cin >>  opcion;
+				switch (opcion) {
+			        case 1:
+			        	
+						menuAl(general);	
+			            break; 
+			            
+			        case 2:
+			        	
+			        	
+						
+			            break;
+			            
+			        case 3:
+			        	
+			        	
+						
+			            break;
+			    	case 4:
+			        	
+			        	
+						
+			            break;
+			        case 5:
+			        	
+			        	
+						
+			            break;
+			        case 6:
+			        	
+			        	
+						
+			            break;
+			        case 7:
+			        	
+			        	
+						
+			            break;
+			        case 8:
+			        	
+			        	
+						
+			            break;
+			        case 9:
+			        	
+			        	
+						
+			            break;
+			        case 10:
+			        	
+			        	
+						
+			            break;
+			        case 11:
+			        	cout << "Regresando...\n";
+			        	menu(general);
+			            return;   
+			            
+			        default:
+			            cout << "Opci√≥n inv√°lida. Intente de nuevo.\n";
+			    }
+            	return; 
+				
                 //break;
             case 3:
                 cout << "Saliendo...\n";
                 return;  // Sale del m√©todo, deteniendo el bucle
             default:
-                std::cout << "Opci√≥n inv√°lida. Intente de nuevo.\n";
+                cout << "Opci√≥n inv√°lida. Intente de nuevo.\n";
         }
     }
 }
+
+
+/*
+void menuBusq(Lista<Album>& general){
+	limpiarConsola();
+	int opcion=1;
+	cout << "Indique la categoria de busqueda:";
+	cout << endl << endl << "1. Numero total de albumes cuyos derechos pertenecen a una editora dada, clasific·ndolos aÒo de publicacion y nombre artistico";
+	cout << endl << endl << "2. Listado de las canciones y los albumes a los que pertenecen, que fueron grabados en un estudio dado, clasificandolos por aÒo y pais de grabacion.";
+	cout << endl << endl << "3. Listado de las canciones con su arreglista y sus autores de letra y musica cuya duraciÛn es mayor a un tiempo dado, clasificadas por ciudad de grabacion.";
+	cout << endl << endl << "4. Listado de las canciones de un genero dado que incluyan un instrumento dado. La lista debe incluir el nombre de la cancion, El nombre artistico y los datos del artista que interpreta el instrumento.";
+	cout << endl << endl << "5. Numero de canciones que tienen una cantidad de versiones >= a un numero dado, clasificadas por genero y aÒo de la primera grabacion.";
+	cout << endl << endl << "6. Listado de las versiones que pertenecen a un tipo de version dado y que est·n en mas de una plataforma. El listado debe incluir en tÌtulo de la version, el nombre del artista principal, el genero, el aÒo y pais de publicaciÛn, el nombre de la obra original y las plataformas en las que se encuentra.";
+	cout << endl << endl << "7. Dada una cancion, listado de los links de todas las plataformas donde se encuentra la original y todas las versiones de dicha cancion, el link debe estar acompaÒado del nombre de la plataforma.";
+	cout << endl << endl << "8. Obtener el numero de canciones y el numero de versiones que ha hecho cada encargado del Cover Art, Clasificando la informacion por genero y aÒo de publicacion, mostrando el nombre del encargado, el genero y el aÒo.";
+	cout << endl << endl << "9. Dado el nombre del encargado de fotografia y del estudio de grabacion, mostrar la lista de los albumes que han sido grabados en ese estudio y a cargo de ese encargado de fotografia, clasificados por pais de grabacion.";
+	cout << endl << endl << "10.Dado el nombre de un compositor de la letra, mostrar todas las canciones compuestas por esa persona incluyendo genero, aÒo, nombre de la cancion album al que pertenece y numero de plataformas en las que se encuentra.";
+	cout << endl << endl << "11.Volver al menu principal.";
+	cout << endl << endl << "12.Salir.";
+	cin >>  opcion;
+	switch (opcion) {
+        case 1:
+        	
+			menuAl(general);	
+            break; 
+            
+        case 2:
+        
+        case 11:
+        	cout << "Regresando...\n";
+        	menu(general);
+            break;   
+        case 12:
+            cout << "Saliendo...\n";
+            return;  // Sale del m√©todo, deteniendo el bucle
+        default:
+            cout << "Opci√≥n inv√°lida. Intente de nuevo.\n";
+    }
+	
+	
+}
+*/
+
+
 #endif
