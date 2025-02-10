@@ -26,6 +26,7 @@ Glenn Frey;Eagles;Estados Unidos;Guitarra
 Joe Walsh;Eagles;Estados Unidos;Guitarra
 Timothy B. Schmit;Eagles;Estados Unidos;Bajo
 Randy Meisner;Eagles;Estados Unidos;Voz
+Bruce Frederick Joseph Springsteen;Bruce Springsteen;Estados Unidos;Voz
 Kurt Cobain;Nirvana;Estados Unidos;Voz
 Krist Novoselic;Nirvana;Estados Unidos;Guitarra
 Dave Grohl;Nirvana;Estados Unidos;Bateria
