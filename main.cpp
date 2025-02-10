@@ -8,14 +8,11 @@
 #include "Album.h"
 #include "Artista.h"
 #include "Version.h"
-#include "Vista.h"
 #include "Lista.h"
 #include "ListaCabAlbum.h"
 #include "ListaCabCancion.h"
 #include "ListaCabVersion.h"
-#include "ArbolAVL.h"
-#include "ConsultasAvl.h"
-#include "CharStrToNumber.h"
+#include "Consultas.h"
 
 
 using namespace std;
@@ -29,6 +26,7 @@ ListaCabAlbum  cabEstudio;
 ListaCabCancion  cabGenero;
 ListaCabCancion  cabCompositor;
 ListaCabCancion  cabPais;
+ListaCabCancion  cabCiud;
 
 
 ListaCabVersion  cabTipoVersion;
@@ -36,15 +34,15 @@ ListaCabVersion  cabTipoVersion;
 Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string& archivoCanciones) {
     Lista<Album> albumes;
 
-    // Leer el archivo de ·lbumes
+    // Leer el archivo de √°lbumes
     ifstream archivoAlbums(archivoAlbumes);
     if (!archivoAlbums.is_open()) {
-        cerr << "Error al abrir el archivo de ·lbumes: " << archivoAlbumes << endl;
+        cerr << "Error al abrir el archivo de √°lbumes: " << archivoAlbumes << endl;
         return albumes;
     }
 
     string lineaAlbum;
-    getline(archivoAlbums, lineaAlbum); // Leer y descartar la primera lÌnea (encabezado)
+    getline(archivoAlbums, lineaAlbum); // Leer y descartar la primera l√≠nea (encabezado)
 
     while (getline(archivoAlbums, lineaAlbum)) {
         stringstream ss(lineaAlbum);
@@ -64,15 +62,18 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
         //Album nuevoAlbum(titulo, artista, paisGrabacion, anio, fotografo, editora, discografica, estudioGrabacion);
         Album* album = new Album(titulo, artista, paisGrabacion, anio, fotografo, editora, discografica, estudioGrabacion);
         
+        
 	    albumes.insert(*album);
-	    cabPais_album.insertarPaisAlbum(album);
-	    cabEditora.insertarEditoraAlbum(album);
-	    cabFotografia.insertarFotografoAlbum(album);
-	    cabEstudio.insertarEstudioAlbum(album);
+	    //Arreglo para que la informaci√≥n quede guardada en las cabeceras
+	    Album* albu = albumes.getP(albumes.get_size());
+	    cabPais_album.insertarPaisAlbum(albu);
+	    cabEditora.insertarEditoraAlbum(albu);
+	    cabFotografia.insertarFotografoAlbum(albu);
+	    cabEstudio.insertarEstudioAlbum(albu);
 	}
     archivoAlbums.close();
 
-    // Leer el archivo de canciones y agregarlas a los ·lbumes correspondientes
+    // Leer el archivo de canciones y agregarlas a los √°lbumes correspondientes
     ifstream archivoCancions(archivoCanciones);
     if (!archivoCancions.is_open()) {
         cerr << "Error al abrir el archivo de canciones: " << archivoCanciones << endl;
@@ -80,7 +81,7 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
     }
 
     string lineaCancion;
-    getline(archivoCancions, lineaCancion); // Leer y descartar la primera lÌnea (encabezado)
+    getline(archivoCancions, lineaCancion); // Leer y descartar la primera l√≠nea (encabezado)
 
     while (getline(archivoCancions, lineaCancion)) {
         stringstream ss(lineaCancion);
@@ -108,14 +109,16 @@ Lista<Album> cargarAlbumesYCanciones(const string& archivoAlbumes, const string&
             ciudadGrabacion, paisGrabacion, anioPublicacion, genero);
             
             
-        // Buscar el ·lbum correspondiente y agregar la canciÛn
+        // Buscar el √°lbum correspondiente y agregar la canci√≥n
         for (auto& album : albumes) {
             if (album.titulo == tituloAlbum) {
                 album.listadoCanciones.insert(*cancion);
-                cabGenero.insertarGeneroCancion(cancion);
-                cabCompositor.insertarCompositorCancion(cancion);
-                cabPais.insertarPaisCancion(cancion);
-                
+                //Arreglo para que la informaci√≥n quede guardada en las cabeceras
+                Cancion* canc = album.listadoCanciones.getP(album.listadoCanciones.get_size());
+                cabGenero.insertarGeneroCancion(canc);
+                cabCompositor.insertarCompositorCancion(canc);
+                cabPais.insertarPaisCancion(canc);
+				cabCiud.insertarCiuCancion(canc);                
                 break;
             }
         }
@@ -134,7 +137,7 @@ void cargarLinksCancion(Lista<Album>& albumes, const string& archivoLinks) {
     }
 
     string linea;
-    getline(archivo, linea); // Leer y descartar la primera lÌnea (encabezado)
+    getline(archivo, linea); // Leer y descartar la primera l√≠nea (encabezado)
 
     while (getline(archivo, linea)) {
         stringstream ss(linea);
@@ -146,7 +149,7 @@ void cargarLinksCancion(Lista<Album>& albumes, const string& archivoLinks) {
 
         Link nuevoLink(nombrePlataforma, link);
 
-        // Buscar la canciÛn correspondiente y agregar el link
+        // Buscar la canci√≥n correspondiente y agregar el link
         for (auto& album : albumes) {
             for (auto& cancion : album.listadoCanciones) {
                 if (cancion.nombreCancion == tituloCancion) {
@@ -159,7 +162,7 @@ void cargarLinksCancion(Lista<Album>& albumes, const string& archivoLinks) {
     }
     archivo.close();
 }
-
+/*
 void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
     ifstream archivo(archivoLinks);
     if (!archivo.is_open()) {
@@ -168,7 +171,7 @@ void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
     }
 
     string linea;
-    getline(archivo, linea); // Leer y descartar la primera lÌnea (encabezado)
+    getline(archivo, linea); // Leer y descartar la primera l√≠nea (encabezado)
 
     while (getline(archivo, linea)) {
         stringstream ss(linea);
@@ -180,7 +183,7 @@ void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
 
         Link nuevoLink(nombrePlataforma, link);
 
-        // Buscar la canciÛn correspondiente y agregar el link
+        // Buscar la canci√≥n correspondiente y agregar el link
         for (auto& album : albumes) {
             if (album.titulo == tituloAlbum) {
                 album.listadoLink.insert(nuevoLink);
@@ -191,7 +194,7 @@ void cargarLinksAlbum(Lista<Album>& albumes, const string& archivoLinks) {
     }
     archivo.close();
 }
-
+*/
 void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
     ifstream archivo(archivoVersiones);
     if (!archivo.is_open()) {
@@ -200,7 +203,7 @@ void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
     }
 
     string linea;
-    getline(archivo, linea); // Leer y descartar la primera lÌnea (encabezado)
+    getline(archivo, linea); // Leer y descartar la primera l√≠nea (encabezado)
 
     while (getline(archivo, linea)) {
         stringstream ss(linea);
@@ -217,20 +220,36 @@ void cargarVersiones(Lista<Album>& albumes, const string& archivoVersiones) {
         ss >> anioPublicacion;
 		
 		Version* version = new Version(tituloVersion, tipoVersion, artistaPrincipal, ciudadGrabacion, paisGrabacion, genero, anioPublicacion);
-            
-        // Buscar la canciÛn correspondiente y agregar la versiÛn
+
+        // Buscar la canci√≥n correspondiente y agregar la versi√≥n
         for (auto& album : albumes) {
             for (auto& cancion : album.listadoCanciones) {
                 if (cancion.nombreCancion == tituloCancion) {
                     cancion.listadoVersion.insert(*version);
-                    cabTipoVersion.insertarTipoVersion(version);
-                    
+                    //Arreglo para que la informaci√≥n quede guardada en las cabeceras
+                    Version* vers = cancion.listadoVersion.getP(cancion.listadoVersion.get_size());
+                    cabTipoVersion.insertarTipoVersion(vers);
                     break;
                 }
             }
         }
     }
+
+    
     archivo.close();
+}
+
+//Por la naturaleza de un par de consultas necesit√© hacer una lista de todas las canciones, esto crea una lista de apuntadores a las canciones que est√°n guardads en 
+//La lista de Albumes, y'know, para asegurar atomicidad de informaci√≥n
+Lista<Cancion*> canciones(Lista<Album> albumes){
+	Lista<Cancion*> canciones;
+	Album album;
+	for (auto& album : albumes) {
+		for (auto& cancion : album.listadoCanciones) {
+			canciones.insert(&cancion);
+		}
+	}
+	return canciones;
 }
 
 void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
@@ -241,7 +260,7 @@ void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
     }
 
     string linea;
-    getline(archivo, linea); // Leer y descartar la primera lÌnea (encabezado)
+    getline(archivo, linea); // Leer y descartar la primera l√≠nea (encabezado)
 
     while (getline(archivo, linea)) {
         stringstream ss(linea);
@@ -256,7 +275,7 @@ void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
         
         //cout<<nombreArtistico<<endl;
 
-        // Buscar la canciÛn o versiÛn correspondiente y agregar el artista
+        // Buscar la canci√≥n o versi√≥n correspondiente y agregar el artista
         for (auto& album : albumes) {
             for (auto& cancion : album.listadoCanciones) {
             	//cout<<cancion.nombreArtistico<<" == "<<nombreArtistico<<endl;
@@ -275,20 +294,25 @@ void cargarArtistas(Lista<Album>& albumes, const string& archivoArtistas) {
 }
 
 Lista<Album> cargarTodo(const string& archivoAlbumes, const string& archivoCanciones, const string& archivoLinksCan, const string& archivoLinksAl, const string& archivoVersiones, const string& archivoArtistas) {
-    Lista<Album> albumes = cargarAlbumesYCanciones(archivoAlbumes, archivoCanciones);
+	Lista<Album> albumes=cargarAlbumesYCanciones(archivoAlbumes, archivoCanciones);
+
     cargarLinksCancion(albumes, archivoLinksCan);
-    cargarLinksAlbum(albumes, archivoLinksAl);
+
+    //cargarLinksAlbum(albumes, archivoLinksAl);
     cargarVersiones(albumes, archivoVersiones);
+
     cargarArtistas(albumes, archivoArtistas);
+
     return albumes;
 }
 
-// FunciÛn para guardar datos en un archivo
+
+// Funci√≥n para guardar datos en un archivo
 void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
     ofstream archivo(nombreArchivo.c_str()); // Convertir string a const char*
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
-        return; // Sale de la funciÛn si no se puede abrir el archivo
+        return; // Sale de la funci√≥n si no se puede abrir el archivo
     }
 
     for (const string& linea : datos) {
@@ -299,63 +323,21 @@ void guardarDatos(const string& nombreArchivo, const Lista<string>& datos) {
 
 
 int main() {
-	
 	Cola<Artista> cola;
-	
+	//Creaci√≥n de las listas generales de Albumes y Canciones
     Lista<Album> albumes = cargarTodo("albumes.txt", "canciones.txt", "linksCancion.txt", "linksAlbum.txt", "versiones.txt", "artistas.txt");
+	Lista<Cancion*> songs =canciones(albumes);
 	
-	Cola<Album> cola_album;
-	
-    ArbolAVL<Album> arbol1;
-    
-    string studio="Abbey Road Studios";
-    int acumulador = 0;
-    Album* actual = cabEstudio.obtenerAlbumesPorCaract(studio);
-    while (actual != NULL) {
-        //cout << *actual << endl; // Usa la sobrecarga del operador <<
-        arbol1.insertar(*actual, actual->anioPublicacion);
-    	acumulador++;
-        actual = actual->sigEstudio;
-    }
-    
-    cout<<"Cantidad de albumes de "<<studio<<": "<<acumulador<<endl;
-    
-    
-    cout<<"Albumes"<<endl;
-    arbol1.postOrderIterativo(cola_album);
-    
-
-    // Imprimir la cola resultante
-    while (!cola_album.empty()) {
-        Album album = cola_album.front(); // Asume que tienes un mÈtodo front()
-        cout << album << endl;
-        cola_album.pop(); // Asume que tienes un mÈtodo pop()
-    }
-    
-    
-    
-    
-	
-	//ConsultasAvl c(albumes);
-	
-	//c.ejecutarConsulta(1);
-	//menu(albumes);
-    
-    return 0;
-}
-
-
-	
-	/*
-	Album album = albumes.get(0);
+	//Ejemplo de visualizaci√≥n de la informaci√≥n contenida en un album de la lista
+	Album album = albumes.get(7);
     
 	cout << "Album: " << album.titulo << " (" << album.anioPublicacion << ")" << endl;
     cout << "Artista: " << album.nombreArtistico << endl;
-    cout << "Canciones:" << endl;
-    
+    cout << "Canciones:" << album.listadoCanciones.get_size() << endl;
+   
     for (auto& cancion : album.listadoCanciones) {
         cout << "  - " << cancion.nombreCancion << " (" << cancion.duracion << ")" << endl;
-        cout<<"cantidad Plataformas "<<cancion.cantPlataformas<<endl;
+        cout<<"Compositor "<<cancion.compositorLetra<<endl;
         cout << "    Links:" << endl;
         for (auto& link : cancion.listadoLink) {
         	cout << "      * " << link.nombrePlataforma << ": " << link.link << endl;
@@ -370,37 +352,55 @@ int main() {
         }
     }
     cout << endl;
-     
+   /*  */
     
+    //Esto no lo toquen q es m√≠o
     
-    cout<<"Albumes del mismo pais Estados Unidos"<<endl;
-    cabPais_album.imprimirAlbumesPorPais("Estados Unidos");
+   // Consu1(cabPais_album, "Estados Unidos")
+  //Consu2(cabEstudio,  "Abbey Road Studios");
+   //Consu3();
+  // Consu4(cabGenero, "Rock", "Bajo");
+    //Consu5();
+    //Consu6(cabTipoVersion, "Special Edition");
+    //Consu7();
+    //Consu8();
+    //Consu9(cabEstudio, "Sound City Studios","Kirk Weddle");
+  // Consu10(  cabCompositor, "Roger Waters");
     
-    cout<<"Canciones del mismo genero Pop"<<endl;
-    cabGenero.imprimirCancionesPorGenero("Folk Rock");
+
     
+ /*   
     cout<<"Versiones del mismo tipo Special Edition"<<endl;
     cabTipoVersion.imprimirVersionesPortipoVer("Special Edition");
-    */
+  */
+  //Esto solo es para verificar q llega al final del programa
+  cout << "NU";  
+    
+    return 0;
+}
+
+
+	
+	
     
     /*
 
-    // CreaciÛn de artistas
-    Artista artista1 = {"Juan PÈrez", "JP", "MÈxico", "Guitarra"};
-    Artista artista2 = {"Ana LÛpez", "Anita", "EspaÒa", "Voz"};
-    Artista artista3 = {"Carlos GÛmez", "Charlie", "Argentina", "BaterÌa"};
+    // Creaci√≥n de artistas
+    Artista artista1 = {"Juan P√©rez", "JP", "M√©xico", "Guitarra"};
+    Artista artista2 = {"Ana L√≥pez", "Anita", "Espa√±a", "Voz"};
+    Artista artista3 = {"Carlos G√≥mez", "Charlie", "Argentina", "Bater√≠a"};
     
     
     datosArtistas.insert(artista1.toCSV());
     datosArtistas.insert(artista2.toCSV());
     datosArtistas.insert(artista3.toCSV());
 
-    // CreaciÛn de canciones
+    // Creaci√≥n de canciones
     Cancion cancion1 = {
         "JP", "Caminos del Alma", "3:45", 
         Lista<Artista>(), 1, 
-        "Juan PÈrez", "Juan PÈrez", "JP & Band", 
-        "Ciudad de MÈxico", "MÈxico", 2023, "Rock", 
+        "Juan P√©rez", "Juan P√©rez", "JP & Band", 
+        "Ciudad de M√©xico", "M√©xico", 2023, "Rock", 
         Lista<Link>()
     };
     cancion1.listadoArtistas.insert(artista1);
@@ -409,8 +409,8 @@ int main() {
     Cancion cancion2 = {
         "Anita", "Vuela Alto", "4:10", 
         Lista<Artista>(), 1, 
-        "Ana LÛpez", "Ana LÛpez", "Anita & Co.", 
-        "Madrid", "EspaÒa", 2023, "Pop", 
+        "Ana L√≥pez", "Ana L√≥pez", "Anita & Co.", 
+        "Madrid", "Espa√±a", 2023, "Pop", 
         Lista<Link>()
     };
     cancion2.listadoArtistas.insert(artista2);
@@ -419,7 +419,7 @@ int main() {
     Cancion cancion3 = {
         "Charlie", "Ritmo Salvaje", "5:02", 
         Lista<Artista>(), 1, 
-        "Carlos GÛmez", "Carlos GÛmez", "Charlie & The Beats", 
+        "Carlos G√≥mez", "Carlos G√≥mez", "Charlie & The Beats", 
         "Buenos Aires", "Argentina", 2023, "Jazz", 
         Lista<Link>()
     };
@@ -430,9 +430,9 @@ int main() {
     datosCanciones.insert(cancion2.toCSV());
     datosCanciones.insert(cancion3.toCSV());
 
-    // CreaciÛn del ·lbum
+    // Creaci√≥n del √°lbum
     Album album = {
-        "Colores del Mundo", "Varios Artistas", "LatinoamÈrica", 2023,
+        "Colores del Mundo", "Varios Artistas", "Latinoam√©rica", 2023,
         "cover.jpg", "fotografia.jpg", "Universal Music", "Estudios Latam",
         Lista<string>(), Lista<Cancion>()
     };
@@ -446,7 +446,7 @@ int main() {
     
 
     // Guardar datos en archivos al finalizar
-    // (AquÌ deberÌas convertir las estructuras de nuevo a texto)
+    // (Aqu√≠ deber√≠as convertir las estructuras de nuevo a texto)
     guardarDatos("albumes.txt", datosAlbumes);
     guardarDatos("canciones.txt", datosCanciones);
     guardarDatos("artistas.txt", datosArtistas);
@@ -489,7 +489,7 @@ int main() {
     ArbolAVL<int> arbol;
     Cola<int> cola;
     
-    // Insertar elementos en el ·rbol
+    // Insertar elementos en el √°rbol
     arbol.insertar(10, 10);
     arbol.insertar(20, 20);
     arbol.insertar(30, 30);
