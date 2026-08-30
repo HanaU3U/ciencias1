@@ -9,7 +9,7 @@
             <mxPoint x="1360" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3y3ZAMMnsoQhnQIu8A7u-3" connectable="0" parent="3y3ZAMMnsoQhnQIu8A7u-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="su proposito es" vertex="1">
+        <mxCell id="3y3ZAMMnsoQhnQIu8A7u-3" connectable="0" parent="3y3ZAMMnsoQhnQIu8A7u-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="su función es" vertex="1">
           <mxGeometry relative="1" x="-0.04" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
